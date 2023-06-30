@@ -1,0 +1,23 @@
+#!/bin/sh
+# This script is executed at boot time after VyOS configuration is fully
+# applied. Any modifications required to work around unfixed bugs or use
+# services not available through the VyOS CLI system can be placed here.
+
+# Add dotfiles for home directory
+tee /home/router/.gitconfig <<END > /dev/null
+[init]
+  defaultBranch = main
+[safe]
+  directory = /config
+[user]
+  email = gabehoban@labrats.cc
+  name = Gabriel Hoban
+END
+#
+tee -a /home/router/.bash_aliases <<END > /dev/null
+export SOPS_AGE_KEY_FILE=/config/vyos-config/secrets/age.key
+export VISUAL=nano
+export EDITOR=nano
+alias podman="sudo podman"
+END
+#

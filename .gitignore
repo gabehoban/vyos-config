@@ -1,0 +1,21 @@
+# Ignore everything
+/*
+
+# Track certain files and directories
+!/.gitignore
+!/.gitattributes
+!/.pre-commit-config.yaml
+!/LICENSE
+!/README.md
+
+# VyOS config
+!/scripts/
+!/secrets/
+!/containers/
+!/router-parts/
+!/apply-router.sh
+!/secrets.sops.env
+!/.sops.yaml
+
+# CI
+!/.github/

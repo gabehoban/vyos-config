@@ -1,0 +1,36 @@
+#!/bin/vbash
+# shellcheck shell=bash
+# shellcheck source=/dev/null
+
+#### -- Interface Descriptions
+set interfaces ethernet eth0 address '10.32.0.1/24'
+set interfaces ethernet eth0 description 'LAN'
+set interfaces ethernet eth0 vif 10 address '10.32.10.254/24'
+set interfaces ethernet eth0 vif 10 description 'TRUSTED'
+set interfaces ethernet eth0 vif 20 address '10.32.20.254/24'
+set interfaces ethernet eth0 vif 20 description 'GUEST'
+set interfaces ethernet eth0 vif 30 address '10.32.30.254/24'
+set interfaces ethernet eth0 vif 30 description 'SECURITY'
+set interfaces ethernet eth0 vif 40 address '10.32.40.254/24'
+set interfaces ethernet eth0 vif 40 description 'SERVERS'
+set interfaces ethernet eth0 vif 50 address '10.32.50.254/24'
+set interfaces ethernet eth0 vif 50 description 'IOT'
+set interfaces ethernet eth0 vif 70 address '10.32.70.254/24'
+set interfaces ethernet eth0 vif 70 description 'MGMT'
+set interfaces ethernet eth0 hw-id '00:23:24:c2:f3:07'
+
+set interfaces ethernet eth2 address 'dhcp'
+set interfaces ethernet eth2 description 'WAN'
+set interfaces ethernet eth2 hw-id '00:05:1b:96:9d:0b'
+
+set interfaces wireless wlan0 hw-id 'e4:a7:a0:2e:14:68'
+set interfaces wireless wlan0 physical-device 'phy0'
+
+# Pubkey: NRrnGU46eGHEM7UgtLJxtp7SJ08pOSro3Y4ygJLGi3Y=
+set interfaces wireguard wg01 address '10.20.0.254/24'
+set interfaces wireguard wg01 description 'WIREGUARD'
+set interfaces wireguard wg01 peer iphone-gabe allowed-ips '10.20.0.21/32'
+set interfaces wireguard wg01 peer iphone-gabe persistent-keepalive '15'
+set interfaces wireguard wg01 peer iphone-gabe public-key 'thL0/u8iYnhE5KdIw3TsXnootMwuXhmcmBEByYbjoBs='
+set interfaces wireguard wg01 port '51820'
+set interfaces wireguard wg01 private-key "${SECRET_WIREGUARD_PRIVATE_KEY}"
