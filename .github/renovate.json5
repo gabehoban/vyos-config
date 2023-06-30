@@ -3,6 +3,7 @@
   "extends": [
     "github>gabehoban/renovate-config",
     "github>gabehoban/renovate-config:automerge-github-actions",
+    ":disableDependencyDashboard"
   ],
   "platform": "github",
   "username": "baymax-bot[bot]",
