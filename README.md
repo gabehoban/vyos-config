@@ -8,7 +8,7 @@ https://github.com/bjw-s/vyos-config
 # Setup/Updating
 
 1. Copy the url from the lastest release in this repository.
-2. Run the following to download the image to VyOS `add system image url <url>`.
+2. Run the following to download the image to VyOS `add system image <url>`.
 3. Reboot.
 4. Once system is back online, run `show system image` to verify update.
 5. Run `delete system image <old_image>` to remove the old image.
