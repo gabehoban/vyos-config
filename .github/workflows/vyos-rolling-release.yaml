@@ -4,7 +4,7 @@ name: VyOS Rolling
 on:
   workflow_dispatch:
   schedule:
-    - cron: 0 3 * * *
+    - cron: 0 0 * * 0
 
 env:
   VYOS_URL: https://github.com/vyos/vyos-build
@@ -63,6 +63,7 @@ jobs:
               --custom-package "age" \
               --custom-package "iptables" \
               --custom-package "ipset" \
+              --custom-package "iprange" \
               --custom-package "jo" \
               --custom-package "moreutils" \
               --custom-package "tree"
