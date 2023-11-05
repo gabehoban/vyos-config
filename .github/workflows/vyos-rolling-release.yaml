@@ -62,8 +62,8 @@ jobs:
               --custom-package "nano" \
               --custom-package "age" \
               --custom-package "iptables" \
+              --custom-package "ipset" \
               --custom-package "jo" \
-              --custom-package "jq" \
               --custom-package "moreutils" \
               --custom-package "tree"
 
@@ -77,3 +77,20 @@ jobs:
           body: |
             Official VyOS Changelog:
             https://docs.vyos.io/en/latest/changelog/1.4.html
+    
+      - name: Delete orphaned release
+        if: failure()
+        uses: dev-drprasad/delete-tag-and-release@5eafd8668311bf3e4d6c1e9898f32a317103de68 # v0.2.1
+        with:
+          github_token: "${{ steps.generate-token.outputs.token }}"
+          tag_name: "v${{ steps.vars.outputs.tag-name }}"
+          delete_release: true
+
+      - name: Prune old releases
+        if: always()
+        uses: dev-drprasad/delete-older-releases@5494cd8b61c31b3c7a15f6267901195ec7df64e8 # v0.3.2
+        with:
+          keep_latest: 120
+          delete_tags: true
+        env:
+          GITHUB_TOKEN: "${{ steps.generate-token.outputs.token }}"
