@@ -1,36 +1,37 @@
 #!/bin/vbash
 # shellcheck shell=bash
 # shellcheck source=/dev/null
-# shellcheck disable=SC2145
 dry_run=false
 
-if [ "$(id -g -n)" != 'vyattacfg' ] ; then
-    exec sg vyattacfg -c "/bin/vbash $(readlink -f "$0") $@"
+if [[ "$(id -g -n)" != 'vyattacfg' ]] ; then
+    exec sg vyattacfg -c "/bin/vbash $(readlink -f "$0") $*"
 fi
 
-while getopts "d" options; do
+while getopts "c" options; do
   case "${options}" in
-    d)
-      dry_run=true
-      ;;
-    *)
-      echo 'error in command line parsing' >&2
-      exit 1
-      ;;
+  # -c Commit changes - default is dry-run
+  c)
+    echo 'Will commit changes'
+    dry_run=false
+    ;;
+  *)
+    echo 'error in command line parsing' >&2
+    exit 1
+    ;;
   esac
 done
 
 # Load secrets into ENV vars
-if [ -f "/config/secrets.sops.env" ]; then
+if [[ -f "/config/secrets.sops.env" ]]; then
   export SOPS_AGE_KEY_FILE=/config/secrets/age.key
 
   mapfile environmentAsArray < <(
-    sops --decrypt "/config/secrets.sops.env" | 
-      grep --invert-match '^#' | 
+    sops --decrypt "/config/secrets.sops.env" |
+      grep --invert-match '^#' |
       grep --invert-match '^\s*$'
   ) # Uses grep to remove commented and blank lines
   for variableDeclaration in "${environmentAsArray[@]}"; do
-    export "${variableDeclaration//[$'\r\n']}" # The substitution removes the line breaks
+    export "${variableDeclaration//[$'\r\n']/}" # The substitution removes the line breaks
   done
 fi
 
@@ -40,47 +41,23 @@ while IFS= read -r -d '' file
 do
   cfgfile="${file%.tmpl}"
 
-  shafile=$file.sha256
-  if ! test -e "$shafile"; then
-    echo "rebuild" >"$shafile"
+  shafile="${file}.sha256"
+  if ! test -e "${shafile}"; then
+    echo "rebuild" >"${shafile}"
   fi
 
-  newsha=$(envsubst <"$file" | shasum -a 256 | awk '{print $1}')
-  oldsha=$(cat "$shafile")
+  newsha=$(envsubst <"${file}" | shasum -a 256 | awk '{print $1}')
+  oldsha=$(cat "${shafile}")
 
-  if ! test "$newsha" == "$oldsha"; then
-    echo "Configuration changed for $file"
-    if ! "$dry_run"; then
-      envsubst <"$file" >"$cfgfile"
-      echo "$newsha" >"$shafile"
-      restart_containers="$restart_containers $(echo "$file" | awk -F / '{print $2}')"
+  if ! test "${newsha}" == "${oldsha}"; then
+    echo "Configuration changed for ${file}"
+    if ! "${dry_run}"; then
+      envsubst <"${file}" >"${cfgfile}"
+      echo "${newsha}" >"${shafile}"
+      restart_containers="${restart_containers} $(echo "${file}" | awk -F / '{print $1}')"
     fi
   fi
-done < <(find containers -type f -name "*.tmpl" ! -name "*.bootstrap.tmpl" -print0)
-
-while IFS= read -r -d '' file
-do
-  if [[ "$file" =~ (.*)\{\{([A-Za-z_0-9\-]*)\}\}(.*) ]]; then
-    fname="${BASH_REMATCH[1]}""${!BASH_REMATCH[2]}""${BASH_REMATCH[3]}"
-
-    shafile=$fname.sha256
-    if ! test -e "$shafile"; then
-      echo "rebuild" >"$shafile"
-    fi
-
-    newsha=$(envsubst <"$file" | shasum -a 256 | awk '{print $1}')
-    oldsha=$(cat "$shafile")
-
-    if ! test "$newsha" == "$oldsha"; then
-      echo "Configuration changed for $fname"
-      if ! "$dry_run"; then
-        envsubst <"$file" >"$fname"
-        echo "$newsha" >"$shafile"
-        restart_containers="$restart_containers $(echo "$file" | awk -F / '{print $2}')"
-      fi
-    fi
-  fi
-done < <(find containers -type f -print0)
+done < <(find containers -type f -name "*.tmpl" -print0)
 
 # Include VyOS specific functions and aliases
 source /opt/vyatta/etc/functions/script-template
@@ -90,15 +67,17 @@ load /opt/vyatta/etc/config.boot.default
 
 # Load all config files
 for f in /config/router-parts/*.sh; do
-  if [ -f "${f}" ]; then
+  if [[ -f "${f}" ]]; then
     echo "Processing ${f}"
     source "${f}"
   fi
 done
 
-if "$dry_run"; then
-  # Show what's different from the running config
-  compare
+echo "Changes to running config:"
+compare
+
+if "${dry_run}"; then
+  exit 0
 else
   # Pull new container images
   mapfile -t AVAILABLE_IMAGES < <(run show container image | awk '{ if ( NR > 1  ) { print $1 ":" $2} }')
@@ -118,8 +97,7 @@ else
 
   # Clean obsolete container images
   IFS=$'\n' read -rd '' -a AVAILABLE_IMAGES <<<"$(run show container image | tail -n +2)"
-  for image in "${AVAILABLE_IMAGES[@]}"
-  do
+  for image in "${AVAILABLE_IMAGES[@]}"; do
     image_name=$(echo "${image}" | awk '{ print $1 }')
     image_tag=$(echo "${image}" | awk '{ print $2 }')
     image_id=$(echo "${image}" | awk '{ print $3 }')
@@ -131,12 +109,9 @@ else
     fi
   done
 
-  # Remove duplicates containers to restart
-  restart_containers=$(echo "$restart_containers" | tr ' ' '\n' | sort -u | tr '\n' ' ')
-
   # Restart containers
-  for container in $restart_containers; do
-    run restart container "$container"
+  for container in ${restart_containers}; do
+    run restart container "${container}"
   done
 fi
 
