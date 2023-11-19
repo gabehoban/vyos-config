@@ -66,7 +66,6 @@ set firewall ipv4 name wan-containers rule 999 state invalid 'enable'
 # (97) From wan to local
 set firewall ipv4 name wan-local default-action 'drop'
 set firewall ipv4 name wan-local description 'From wan to local'
-set firewall ipv4 name wan-local enable-default-log
 ### --- 030-local : Accept WIREGUARD Traffic (51820)
 set firewall ipv4 name wan-local rule 30 action 'accept'
 set firewall ipv4 name wan-local rule 30 description 'Rule: Accept_wireguard'

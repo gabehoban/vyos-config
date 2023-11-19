@@ -20,20 +20,19 @@ function forward_rule {
 
   case $action in
     accept)
-      set firewall ipv4 forward filter rule $rule action "$action"
-      set firewall ipv4 forward filter rule $rule inbound-interface group IG_"$inbound"
-      set firewall ipv4 forward filter rule $rule outbound-interface group IG_"$outbound"
+      set firewall ipv4 forward filter rule $rule action $action
+      set firewall ipv4 forward filter rule $rule inbound-interface group IG_$inbound
+      set firewall ipv4 forward filter rule $rule outbound-interface group IG_$outbound
       ;;
     drop)
-      set firewall ipv4 forward filter rule $rule action "$action"
-      set firewall ipv4 forward filter rule $rule outbound-interface group IG_"$outbound"
-      set firewall ipv4 forward filter rule $rule log 'enable'
+      set firewall ipv4 forward filter rule $rule action $action
+      set firewall ipv4 forward filter rule $rule outbound-interface group IG_$outbound
       ;;
     jump)
-      set firewall ipv4 forward filter rule $rule action "$action"
-      set firewall ipv4 forward filter rule $rule inbound-interface group IG_"$inbound"
-      set firewall ipv4 forward filter rule $rule outbound-interface group IG_"$outbound"
-      set firewall ipv4 forward filter rule $rule jump-target "${inbound}"-"${outbound}"
+      set firewall ipv4 forward filter rule $rule action $action
+      set firewall ipv4 forward filter rule $rule inbound-interface group IG_$inbound
+      set firewall ipv4 forward filter rule $rule outbound-interface group IG_$outbound
+      set firewall ipv4 forward filter rule $rule jump-target ${inbound}-${outbound}
       ;;
   esac
 
@@ -56,13 +55,12 @@ function input_rule {
 
   case $action in
     drop)
-      set firewall ipv4 input filter rule $rule action "$action"
-      set firewall ipv4 input filter rule $rule log 'enable'
+      set firewall ipv4 input filter rule $rule action $action
       ;;
     jump)
-      set firewall ipv4 input filter rule $rule action "$action"
-      set firewall ipv4 input filter rule $rule inbound-interface group IG_"$inbound"
-      set firewall ipv4 input filter rule $rule jump-target "${inbound}"-local
+      set firewall ipv4 input filter rule $rule action $action
+      set firewall ipv4 input filter rule $rule inbound-interface group IG_$inbound
+      set firewall ipv4 input filter rule $rule jump-target ${inbound}-local
       ;;
   esac
 
@@ -85,26 +83,16 @@ function output_rule {
 
   case $action in
     drop)
-      set firewall ipv4 output filter rule $rule action "$action"
-      set firewall ipv4 output filter rule $rule log 'enable'
+      set firewall ipv4 output filter rule $rule action $action
       ;;
     jump)
-      set firewall ipv4 output filter rule $rule action "$action"
-      set firewall ipv4 output filter rule $rule outbound-interface group IG_"$outbound"
-      set firewall ipv4 output filter rule $rule jump-target local-"$outbound"
+      set firewall ipv4 output filter rule $rule action $action
+      set firewall ipv4 output filter rule $rule outbound-interface group IG_$outbound
+      set firewall ipv4 output filter rule $rule jump-target local-$outbound
       ;;
   esac
 
   output_rule_number=$((output_rule_number+5))
-}
-
-function begin_traffic {
-  shift # Ignore $1 which is "to"
-  interface=$1
-
-  if ! test "$interface" == "local"; then
-    forward_rule "$interface" "$interface" accept
-  fi
 }
 
 function handle_traffic {
@@ -112,26 +100,28 @@ function handle_traffic {
   outbound=$1
   shift
   shift # Ignore next word which is from
+
+  # begin traffic
+  if ! test "$outbound" == "local"; then
+    forward_rule $outbound $outbound accept
+  fi
+
   for inbound in $*; do
     if test "$outbound" == "local"; then
-      input_rule "$inbound" jump
+      input_rule $inbound jump
     elif test "$inbound" == "local"; then
-      output_rule "$outbound" jump
+      output_rule $outbound jump
     else
-      forward_rule "$inbound" "$outbound" jump
+      forward_rule $inbound $outbound jump
     fi
   done
-}
 
-function end_traffic {
-  shift # Ignore $1 which is "to"
-  outbound=$1
-
+  # end traffic
   if test "$outbound" == "local"; then
     input_rule any drop
     output_rule any drop
   else
-    forward_rule any "$outbound" drop
+    forward_rule any $outbound drop
   fi
 }
 
@@ -139,22 +129,28 @@ function end_traffic {
 set firewall ipv4 forward filter default-action 'accept'
 set firewall ipv4 forward filter rule 1 action 'accept'
 set firewall ipv4 forward filter rule 1 state established 'enable'
-set firewall ipv4 forward filter rule 2 action 'accept'
-set firewall ipv4 forward filter rule 2 state related 'enable'
+set firewall ipv4 forward filter rule 2 action 'drop'
+set firewall ipv4 forward filter rule 2 state invalid 'enable'
+set firewall ipv4 forward filter rule 3 action 'accept'
+set firewall ipv4 forward filter rule 3 state related 'enable'
 
 # Default input policy
 set firewall ipv4 input filter default-action 'accept'
 set firewall ipv4 input filter rule 1 action 'accept'
 set firewall ipv4 input filter rule 1 state established 'enable'
-set firewall ipv4 input filter rule 2 action 'accept'
-set firewall ipv4 input filter rule 2 state related 'enable'
+set firewall ipv4 input filter rule 2 action 'drop'
+set firewall ipv4 input filter rule 2 state invalid 'enable'
+set firewall ipv4 input filter rule 3 action 'accept'
+set firewall ipv4 input filter rule 3 state related 'enable'
 
 # Default output policy
 set firewall ipv4 output filter default-action 'accept'
 set firewall ipv4 output filter rule 1 action 'accept'
 set firewall ipv4 output filter rule 1 state established 'enable'
-set firewall ipv4 output filter rule 2 action 'accept'
-set firewall ipv4 output filter rule 2 state related 'enable'
+set firewall ipv4 output filter rule 2 action 'drop'
+set firewall ipv4 output filter rule 2 state invalid 'enable'
+set firewall ipv4 output filter rule 3 action 'accept'
+set firewall ipv4 output filter rule 3 state related 'enable'
 
 # Ensure VyOS can talk to itself
 set firewall ipv4 output filter rule 10 action accept
@@ -164,34 +160,11 @@ set firewall ipv4 input  filter rule 10 action accept
 set firewall ipv4 input  filter rule 10 source group address-group router-addresses
 set firewall ipv4 input  filter rule 10 destination group address-group router-addresses
 
-begin_traffic  to lan
-handle_traffic to lan from trusted guest iot servers containers local wan
-end_traffic    to lan
-
-begin_traffic  to trusted
-handle_traffic to trusted from lan guest iot servers containers local wan
-end_traffic    to trusted
-
-begin_traffic  to guest
-handle_traffic to guest from lan trusted iot servers containers local wan
-end_traffic    to guest
-
-begin_traffic  to iot
-handle_traffic to iot from lan trusted guest servers containers local wan
-end_traffic    to iot
-
-begin_traffic  to servers
-handle_traffic to servers from lan trusted guest iot containers local wan
-end_traffic    to servers
-
-begin_traffic  to containers
+handle_traffic to lan        from trusted guest iot servers containers local wan
+handle_traffic to trusted    from lan guest iot servers containers local wan
+handle_traffic to guest      from lan trusted iot servers containers local wan
+handle_traffic to iot        from lan trusted guest servers containers local wan
+handle_traffic to servers    from lan trusted guest iot containers local wan
 handle_traffic to containers from lan trusted guest iot servers local wan
-end_traffic    to containers
-
-begin_traffic  to local
-handle_traffic to local from lan trusted guest iot servers containers wan
-end_traffic    to local
-
-begin_traffic  to wan
-handle_traffic to wan from lan trusted guest iot servers containers local
-end_traffic    to wan
+handle_traffic to wan        from lan trusted guest iot servers containers local
+handle_traffic to local      from lan trusted guest iot servers containers wan

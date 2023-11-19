@@ -47,6 +47,16 @@ set firewall ipv4 name local-iot rule 999 state invalid 'enable'
 set firewall ipv4 name local-servers default-action 'drop'
 set firewall ipv4 name local-servers description 'From local to servers'
 set firewall ipv4 name local-servers enable-default-log
+### --- 010-servers : Accept NTP Traffic (123)
+set firewall ipv4 name local-servers rule 10 action 'accept'
+set firewall ipv4 name local-servers rule 10 description 'Rule: Accept_NTP'
+set firewall ipv4 name local-servers rule 10 destination port 'ntp'
+set firewall ipv4 name local-servers rule 10 protocol 'udp'
+### --- 080-servers : Accept DNS Traffic (domain,domain-s)
+set firewall ipv4 name local-servers rule 80 action 'accept'
+set firewall ipv4 name local-servers rule 80 description 'Rule: Accept_DNS'
+set firewall ipv4 name local-servers rule 80 destination port 'domain,domain-s'
+set firewall ipv4 name local-servers rule 80 protocol 'tcp_udp'
 ### --- 999-servers : Drop Invalid Packets
 set firewall ipv4 name local-servers rule 999 action 'drop'
 set firewall ipv4 name local-servers rule 999 description 'Rule: Drop_Invalid'

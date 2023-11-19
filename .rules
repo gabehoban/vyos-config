@@ -2,6 +2,7 @@
 --- 999-lan : Drop Invalid Packets
 
 #### trusted ------------------------------------------------------------------------
+--- 010-trusted : Accept Ping (ICMP)
 --- 999-trusted : Drop Invalid Packets
 
 #### guest --------------------------------------------------------------------------
@@ -32,6 +33,8 @@
 
 #### local ---------------------------------------------------------------------------
 --- 010-local : Accept DHCP Traffic (67,68)
+--- 020-local : Accept NTP Traffic (123)
 --- 030-local : Accept SSH Traffic (22)
 --- 040-local : Accept SNMP Traffic (161)
+--- 050-local : Accept Ping (ICMP)
 --- 999-local : Drop Invalid Packets

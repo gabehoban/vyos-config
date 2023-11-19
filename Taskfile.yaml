@@ -5,16 +5,22 @@ tasks:
     cmds:
       - task: update-local
       - task: update-remote
+      - task: apply-router
 
   update-local:
     internal: true
     cmds:
-      - rsync -ahAEO .gitignore .rules .sops.yaml containers README.md apply-router.sh secrets.sops.env Taskfile.yaml router:/config/
-      - rsync -ahAEO --delete router-parts scripts router:/config/
+      - rsync -ahAEO .gitignore .github .rules .sops.yaml containers README.md apply-router.sh secrets.sops.env Taskfile.yaml router:/config/
+      - rsync -ahAEO --delete router-parts router:/config/ 
+      - rsync -ahAEO --delete scripts      router:/config/
       - ssh router -t "sudo chown -R router:vyattacfg /config && sudo chown -R dhcpd:vyattacfg  /config/dhcpd.leases*"
-      - ssh router -t "cd /config && ./apply-router.sh"
 
   update-remote:
     internal: true
     cmds:
       - echo
+
+  apply-router:
+    internal: true
+    cmds:
+      - ssh router -t "cd /config && ./apply-router.sh"

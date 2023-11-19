@@ -42,11 +42,6 @@ set firewall ipv4 name trusted-iot rule 999 state invalid 'enable'
 set firewall ipv4 name trusted-servers default-action 'drop'
 set firewall ipv4 name trusted-servers description 'From trusted to servers'
 set firewall ipv4 name trusted-servers enable-default-log
-### --- 010-servers : Accept NTP Traffic (123)
-set firewall ipv4 name trusted-servers rule 10 action 'accept'
-set firewall ipv4 name trusted-servers rule 10 description 'Rule: Accept_NTP'
-set firewall ipv4 name trusted-servers rule 10 destination port 'ntp'
-set firewall ipv4 name trusted-servers rule 10 protocol 'udp'
 ### --- 020-servers : Accept SSH Traffic (22)
 set firewall ipv4 name trusted-servers rule 20 action 'accept'
 set firewall ipv4 name trusted-servers rule 20 description 'Rule: Accept_SSH'
@@ -107,6 +102,11 @@ set firewall ipv4 name trusted-local rule 10 description 'Rule: Accept_DHCP'
 set firewall ipv4 name trusted-local rule 10 destination port '67,68'
 set firewall ipv4 name trusted-local rule 10 protocol 'udp'
 set firewall ipv4 name trusted-local rule 10 source port '67,68'
+### --- 020-local : Accept NTP Traffic (123)
+set firewall ipv4 name trusted-local rule 20 action 'accept'
+set firewall ipv4 name trusted-local rule 20 description 'Rule: Accept_NTP'
+set firewall ipv4 name trusted-local rule 20 destination port 'ntp'
+set firewall ipv4 name trusted-local rule 20 protocol 'udp'
 ### --- 030-local : Accept SSH Traffic (22)
 set firewall ipv4 name trusted-local rule 30 action 'accept'
 set firewall ipv4 name trusted-local rule 30 description 'Rule: Accept_SSH'

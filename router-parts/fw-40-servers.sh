@@ -17,6 +17,10 @@ set firewall ipv4 name servers-lan rule 999 state invalid 'enable'
 set firewall ipv4 name servers-trusted default-action 'drop'
 set firewall ipv4 name servers-trusted description 'From servers to trusted'
 set firewall ipv4 name servers-trusted enable-default-log
+### --- 010-trusted : Accept Ping (ICMP)
+set firewall ipv4 name servers-trusted rule 10 action 'accept'
+set firewall ipv4 name servers-trusted rule 10 description 'Rule: Accept_ICMP'
+set firewall ipv4 name servers-trusted rule 10 protocol 'icmp'
 ### --- 999-trusted : Drop Invalid Packets
 set firewall ipv4 name servers-trusted rule 999 action 'drop'
 set firewall ipv4 name servers-trusted rule 999 description 'Rule: Drop_Invalid'
@@ -82,6 +86,11 @@ set firewall ipv4 name servers-local rule 10 description 'Rule: Accept_DHCP'
 set firewall ipv4 name servers-local rule 10 destination port '67,68'
 set firewall ipv4 name servers-local rule 10 protocol 'udp'
 set firewall ipv4 name servers-local rule 10 source port '67,68'
+### --- 020-local : Accept NTP Traffic (123)
+set firewall ipv4 name servers-local rule 20 action 'accept'
+set firewall ipv4 name servers-local rule 20 description 'Rule: Accept_NTP'
+set firewall ipv4 name servers-local rule 20 destination port 'ntp'
+set firewall ipv4 name servers-local rule 20 protocol 'udp'
 ### --- 040-local : Accept SNMP Traffic (161)
 set firewall ipv4 name servers-local rule 40 action 'accept'
 set firewall ipv4 name servers-local rule 40 description 'Rule: Accept_SNMP'
