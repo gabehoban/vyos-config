@@ -1,0 +1,24 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>gabehoban/renovate-config",
+    "github>gabehoban/renovate-config:automerge-github-actions",
+    ":disableDependencyDashboard"
+  ],
+  "platform": "github",
+  "username": "baymax-bot[bot]",
+  "gitAuthor": "baymax-bot <325993+baymax-bot[bot]@users.noreply.github.com>",
+  "repositories": ["gabehoban/vyos-config"],
+  "regexManagers": [
+    {
+      "description": ["Generic Docker image Regex manager"],
+      "fileMatch": [
+        "router-parts/.+\\.sh$"
+      ],
+      "matchStrings": [
+        "set container name .* image '?(?<depName>.*?):(?<currentValue>[^'\n]*=?)'?"
+      ],
+      "datasourceTemplate": "docker"
+    },
+  ]
+}
