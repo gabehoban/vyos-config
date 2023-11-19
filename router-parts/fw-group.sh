@@ -21,6 +21,8 @@ set firewall group ipv6-address-group router-addresses-ipv6 address '::1'
 
 # TP-Link Omada
 set firewall group address-group controller_omada address '10.40.0.7'
+set firewall group address-group omada_portal address '10.32.10.21'
+set firewall group address-group omada_portal address '10.32.40.23'
 set firewall group address-group omada_clients address '10.32.0.21'
 set firewall group address-group omada_clients address '10.32.0.22'
 

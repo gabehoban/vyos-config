@@ -81,11 +81,12 @@ set firewall ipv4 name trusted-containers rule 10 action 'accept'
 set firewall ipv4 name trusted-containers rule 10 description 'Rule: Accept_DNS'
 set firewall ipv4 name trusted-containers rule 10 destination port 'domain,domain-s'
 set firewall ipv4 name trusted-containers rule 10 protocol 'tcp_udp'
-### +++ 030-containers : TMP
+### --- 020-containers : Accept Omada Traffic (src-dst)
 set firewall ipv4 name trusted-containers rule 20 action 'accept'
-set firewall ipv4 name trusted-containers rule 20 description 'Rule: Accept_OMADA'
-set firewall ipv4 name trusted-containers rule 20 destination port '8043'
-set firewall ipv4 name trusted-containers rule 20 protocol 'tcp'
+set firewall ipv4 name trusted-containers rule 20 description 'Rule: Accept_Omada'
+set firewall ipv4 name trusted-containers rule 20 destination group address-group controller_omada
+set firewall ipv4 name trusted-containers rule 20 protocol 'tcp_udp'
+set firewall ipv4 name trusted-containers rule 20 source group address-group omada_portal
 ### --- 999-containers : Drop Invalid Packets
 set firewall ipv4 name trusted-containers rule 999 action 'drop'
 set firewall ipv4 name trusted-containers rule 999 description 'Rule: Drop_Invalid'

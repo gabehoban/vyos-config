@@ -3,24 +3,16 @@ version: '3'
 tasks:
   router:
     cmds:
-      - task: update-local
       - task: update-remote
-      - task: apply-router
-
-  update-local:
-    internal: true
-    cmds:
-      - rsync -ahAEO .gitignore .github .rules .sops.yaml containers README.md apply-router.sh secrets.sops.env Taskfile.yaml router:/config/
-      - rsync -ahAEO --delete router-parts router:/config/ 
-      - rsync -ahAEO --delete scripts      router:/config/
-      - ssh router -t "sudo chown -R router:vyattacfg /config && sudo chown -R dhcpd:vyattacfg  /config/dhcpd.leases*"
+      - task: update-router
 
   update-remote:
     internal: true
     cmds:
-      - echo
+      - git status --porcelain && exit
 
-  apply-router:
+  update-router:
     internal: true
     cmds:
+      - ssh router -t "cd /config && git pull"
       - ssh router -t "cd /config && ./apply-router.sh"
