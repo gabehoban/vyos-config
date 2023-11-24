@@ -57,6 +57,11 @@ set firewall ipv4 name local-servers rule 80 action 'accept'
 set firewall ipv4 name local-servers rule 80 description 'Rule: Accept_DNS'
 set firewall ipv4 name local-servers rule 80 destination port 'domain,domain-s'
 set firewall ipv4 name local-servers rule 80 protocol 'tcp_udp'
+### --- 090-servers : Accept DNS Traffic (5053)
+set firewall ipv4 name local-servers rule 90 action 'accept'
+set firewall ipv4 name local-servers rule 90 description 'Rule: Accept_DNS'
+set firewall ipv4 name local-servers rule 90 destination port '5053'
+set firewall ipv4 name local-servers rule 90 protocol 'tcp_udp'
 ### --- 999-servers : Drop Invalid Packets
 set firewall ipv4 name local-servers rule 999 action 'drop'
 set firewall ipv4 name local-servers rule 999 description 'Rule: Drop_Invalid'

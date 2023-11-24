@@ -24,6 +24,7 @@
 --- 060-servers : Accept SAMBA Traffic (445)
 --- 070-servers : Accept MQTT Traffic (1883)
 --- 080-servers : Accept DNS Traffic (domain,domain-s)
+--- 090-servers : Accept DNS Traffic (5053)
 --- 999-servers : Drop Invalid Packets
 
 #### containers ----------------------------------------------------------------------

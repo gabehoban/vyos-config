@@ -97,23 +97,29 @@ set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 range 0
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 range 0 stop '10.32.40.253'
 set service dhcp-server shared-network-name servers ntp-server 10.32.40.254
 
+# discovery  -- truenas storage host
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping discovery ip-address '10.32.40.10'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping discovery mac-address '84:2b:2b:45:04:8e'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping discovery-idrac ip-address '10.32.40.11'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping discovery-idrac mac-address '84:2b:2b:45:04:96'
+# pve        -- proxmox hypervisor host
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping pve ip-address '10.32.40.21'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping pve mac-address '48:4d:7e:d0:10:e5'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping docker01 ip-address '10.32.40.22'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping docker01 mac-address '46:c2:2c:01:a5:41'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping home-assistant ip-address '10.32.40.23'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping home-assistant mac-address '02:70:6c:98:d2:3d'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping nginx-pm ip-address '10.32.40.24'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping nginx-pm mac-address '86:23:84:57:16:4d'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping monitor ip-address '10.32.40.25'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping monitor mac-address '3e:3b:46:ab:84:96'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping dns ip-address '10.32.40.26'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping dns mac-address '9e:86:09:ba:41:34'
+# voyager    -- proxmox compute vm
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping voyager ip-address '10.32.40.22'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping voyager mac-address '46:c2:2c:01:a5:41'
+# endeavour  -- proxmox home-assistant vm
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping endeavour ip-address '10.32.40.23'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping endeavour mac-address '02:70:6c:98:d2:3d'
+# titan      -- proxmox media vm
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping titan ip-address '10.32.40.24'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping titan mac-address '86:23:84:57:16:4d'
+# hubble     -- proxmox networking vm
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping hubble ip-address '10.32.40.25'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping hubble mac-address '3e:3b:46:ab:84:96'
+# casio      -- GPS NTP Time Server 1 (rpi)
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping casio ip-address '10.32.40.51'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping casio mac-address 'd8:3a:dd:68:0b:81'
+# sekio      -- GPS NTP Time Server 2 (rpi)
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping seiko ip-address '10.32.40.52'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping seiko mac-address 'd8:3a:dd:68:ec:82'
