@@ -12,12 +12,13 @@ delete service ntp server
 set service ntp server 10.32.40.51
 set service ntp server 10.32.40.52
 
-# SNMP Monitoring
-set service snmp community public authorization ro
-set service snmp community public network 10.32.40.0/24
-set service snmp location "Data Center"
-set service snmp contact "sysadmin@labrats.cc"
-set service snmp listen-address 10.32.40.254 port 161
+# Telegraf Monitoring
+set service monitoring telegraf authentication organization $SECRET_TELEGRAF_ORG
+set service monitoring telegraf authentication token $SECERT_TELEGRAF_TOKEN
+set service monitoring telegraf bucket $SECERT_TELEGRAF_BUCKET
+set service monitoring telegraf port '8086'
+set service monitoring telegraf source 'all'
+set service monitoring telegraf url $SECRET_TELEGRAF_HOST
 
 # SSH server
 set service ssh disable-password-authentication

@@ -62,6 +62,11 @@ set firewall ipv4 name local-servers rule 90 action 'accept'
 set firewall ipv4 name local-servers rule 90 description 'Rule: Accept_DNS'
 set firewall ipv4 name local-servers rule 90 destination port '5053'
 set firewall ipv4 name local-servers rule 90 protocol 'tcp_udp'
+### --- 100-servers : Accept InfluxDB Traffic (8086)
+set firewall ipv4 name local-servers rule 100 action 'accept'
+set firewall ipv4 name local-servers rule 100 description 'Rule: Accept_INFLUX'
+set firewall ipv4 name local-servers rule 100 destination port '8086'
+set firewall ipv4 name local-servers rule 100 protocol 'tcp_udp'
 ### --- 999-servers : Drop Invalid Packets
 set firewall ipv4 name local-servers rule 999 action 'drop'
 set firewall ipv4 name local-servers rule 999 description 'Rule: Drop_Invalid'

@@ -25,6 +25,7 @@
 --- 070-servers : Accept MQTT Traffic (1883)
 --- 080-servers : Accept DNS Traffic (domain,domain-s)
 --- 090-servers : Accept DNS Traffic (5053)
+--- 100-servers : Accept InfluxDB Traffic (8086)
 --- 999-servers : Drop Invalid Packets
 
 #### containers ----------------------------------------------------------------------
