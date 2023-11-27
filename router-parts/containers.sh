@@ -23,7 +23,7 @@ set container name dnsdist volume config source '/config/containers/dnsdist/conf
 set container name omada-controller environment PGID value '102'
 set container name omada-controller environment PUID value '1002'
 set container name omada-controller environment TZ value 'America/Detroit'
-set container name omada-controller image 'docker.io/mbentley/omada-controller:5.12'
+set container name omada-controller image 'gitea.labrats.cc/labrats/docker-omada-controller:latest'
 set container name omada-controller memory '0'
 set container name omada-controller network containers address '10.40.0.7'
 set container name omada-controller restart 'on-failure'
