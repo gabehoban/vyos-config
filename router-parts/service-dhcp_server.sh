@@ -102,6 +102,9 @@ set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping discovery mac-address '84:2b:2b:45:04:8e'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping discovery-idrac ip-address '10.32.40.11'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping discovery-idrac mac-address '84:2b:2b:45:04:96'
+# skylab     -- proxmox jumphost vm
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping skylab ip-address '10.32.40.20'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping skylab mac-address 'bc:24:11:3d:6d:a3'
 # pve        -- proxmox hypervisor host
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping pve ip-address '10.32.40.21'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping pve mac-address '48:4d:7e:d0:10:e5'
