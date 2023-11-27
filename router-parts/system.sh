@@ -12,6 +12,7 @@ set system login user router authentication public-keys cardno:7762856 key 'AAAA
 set system login user router authentication public-keys cardno:7762856 type 'ssh-rsa'
 
 # Router DNS
+set system name-server '10.40.0.6'
 set system name-server '1.1.1.1'
 
 # Sysctl
