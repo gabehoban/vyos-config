@@ -4,5 +4,5 @@
 # Track certain files and directories
 !.gitignore
 
-!/conf/
+!/config/
 !/work/
