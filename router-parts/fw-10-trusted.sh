@@ -113,6 +113,12 @@ set firewall ipv4 name trusted-local rule 30 action 'accept'
 set firewall ipv4 name trusted-local rule 30 description 'Rule: Accept_SSH'
 set firewall ipv4 name trusted-local rule 30 destination port 'ssh'
 set firewall ipv4 name trusted-local rule 30 protocol 'tcp'
+### --- 060-local : Accept MDNS (5353)
+set firewall ipv4 name trusted-local rule 60 action 'accept'
+set firewall ipv4 name trusted-local rule 60 description 'Rule: accept_MDNS'
+set firewall ipv4 name trusted-local rule 60 destination port 'mdns'
+set firewall ipv4 name trusted-local rule 60 protocol 'udp'
+set firewall ipv4 name trusted-local rule 60 source port 'mdns'
 ### --- 901-local : Drop Spam Plex Traffic (32412)
 set firewall ipv4 name trusted-local rule 901 action 'drop'
 set firewall ipv4 name trusted-local rule 901 description 'Rule: Drop_Plex_Ports'

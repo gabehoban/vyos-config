@@ -12,6 +12,12 @@ delete service ntp server
 set service ntp server 10.32.40.51
 set service ntp server 10.32.40.52
 
+# MDNS
+set service mdns repeater interface 'eth0'
+set service mdns repeater interface 'eth0.10'
+set service mdns repeater interface 'eth0.30'
+set service mdns repeater interface 'eth0.40'
+
 # SSH server
 set service ssh disable-password-authentication
 set service ssh listen-address '10.32.10.254'

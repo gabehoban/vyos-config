@@ -17,6 +17,12 @@ set firewall ipv4 name local-lan rule 999 state invalid 'enable'
 set firewall ipv4 name local-trusted default-action 'drop'
 set firewall ipv4 name local-trusted description 'From local to trusted'
 set firewall ipv4 name local-trusted enable-default-log
+### --- 020-trusted : Accept MDNS (5353)
+set firewall ipv4 name local-trusted rule 20 action 'accept'
+set firewall ipv4 name local-trusted rule 20 description 'Rule: accept_MDNS'
+set firewall ipv4 name local-trusted rule 20 destination port 'mdns'
+set firewall ipv4 name local-trusted rule 20 protocol 'udp'
+set firewall ipv4 name local-trusted rule 20 source port 'mdns'
 ### --- 999-trusted : Drop Invalid Packets
 set firewall ipv4 name local-trusted rule 999 action 'drop'
 set firewall ipv4 name local-trusted rule 999 description 'Rule: Drop_Invalid'
@@ -37,6 +43,12 @@ set firewall ipv4 name local-guest rule 999 state invalid 'enable'
 set firewall ipv4 name local-iot default-action 'drop'
 set firewall ipv4 name local-iot description 'From local to iot'
 set firewall ipv4 name local-iot enable-default-log
+### --- 050-iot : Accept MDNS (5353)
+set firewall ipv4 name local-iot rule 50 action 'accept'
+set firewall ipv4 name local-iot rule 50 description 'Rule: accept_MDNS'
+set firewall ipv4 name local-iot rule 50 destination port 'mdns'
+set firewall ipv4 name local-iot rule 50 protocol 'udp'
+set firewall ipv4 name local-iot rule 50 source port 'mdns'
 ### --- 999-iot : Drop Invalid Packets
 set firewall ipv4 name local-iot rule 999 action 'drop'
 set firewall ipv4 name local-iot rule 999 description 'Rule: Drop_Invalid'
@@ -77,6 +89,12 @@ set firewall ipv4 name local-servers rule 100 action 'accept'
 set firewall ipv4 name local-servers rule 100 description 'Rule: Accept_INFLUX'
 set firewall ipv4 name local-servers rule 100 destination port '8086'
 set firewall ipv4 name local-servers rule 100 protocol 'tcp_udp'
+### --- 110-servers : Accept MDNS (5353)
+set firewall ipv4 name local-servers rule 110 action 'accept'
+set firewall ipv4 name local-servers rule 110 description 'Rule: accept_MDNS'
+set firewall ipv4 name local-servers rule 110 destination port 'mdns'
+set firewall ipv4 name local-servers rule 110 protocol 'udp'
+set firewall ipv4 name local-servers rule 110 source port 'mdns'
 ### --- 999-servers : Drop Invalid Packets
 set firewall ipv4 name local-servers rule 999 action 'drop'
 set firewall ipv4 name local-servers rule 999 description 'Rule: Drop_Invalid'

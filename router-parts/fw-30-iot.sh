@@ -95,6 +95,12 @@ set firewall ipv4 name iot-local rule 30 source port 'mdns'
 set firewall ipv4 name iot-local rule 50 action 'accept'
 set firewall ipv4 name iot-local rule 50 description 'Rule: Accept_PING'
 set firewall ipv4 name iot-local rule 50 protocol 'icmp'
+### --- 060-local : Accept MDNS (5353)
+set firewall ipv4 name iot-local rule 60 action 'accept'
+set firewall ipv4 name iot-local rule 60 description 'Rule: accept_MDNS'
+set firewall ipv4 name iot-local rule 60 destination port 'mdns'
+set firewall ipv4 name iot-local rule 60 protocol 'udp'
+set firewall ipv4 name iot-local rule 60 source port 'mdns'
 ### --- 999-local : Drop Invalid Packets
 set firewall ipv4 name iot-local rule 999 action 'drop'
 set firewall ipv4 name iot-local rule 999 description 'Rule: Drop_Invalid'
