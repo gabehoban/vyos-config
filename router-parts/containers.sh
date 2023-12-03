@@ -6,6 +6,18 @@
 set container network containers description 'Network for containers'
 set container network containers prefix '10.40.0.0/24'
 
+# gandi-ddns
+set container name gandi-ddns allow-host-networks
+set container name gandi-ddns environment GANDI_DOMAIN value 'ipv4.labrats.cc'
+set container name gandi-ddns environment GANDI_KEY value "${SECRET_GANDI_DDNS_KEY}"
+set container name gandi-ddns environment PGID value "1000"
+set container name gandi-ddns environment PUID value "1000"
+set container name gandi-ddns environment TZ value 'America/Detroit'
+set container name gandi-ddns image 'gitea.labrats.cc/labrats/gandi-ddns:latest'
+set container name gandi-ddns memory '0'
+set container name gandi-ddns restart 'on-failure'
+set container name gandi-ddns shared-memory '0'
+
 # adguard
 set container name adguard cap-add 'net-bind-service'
 set container name adguard image 'docker.io/adguard/adguardhome:v0.107.39'
