@@ -9,7 +9,7 @@ set container network containers prefix '10.40.0.0/24'
 # gandi-ddns
 set container name gandi-ddns allow-host-networks
 set container name gandi-ddns environment GANDI_DOMAIN value 'labrats.cc'
-set container name gandi-ddns environment GANDI_KEY value "${SECRET_GANDI_DDNS_KEY}"
+set container name gandi-ddns environment GANDI_PAT value "${SECRET_GANDI_DDNS_KEY}"
 set container name gandi-ddns environment GANDI_RECORD value 'ipv4'
 set container name gandi-ddns environment PGID value "1000"
 set container name gandi-ddns environment PUID value "1000"
