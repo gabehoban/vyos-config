@@ -10,8 +10,8 @@ set firewall ipv4 name containers-lan enable-default-log
 ### --- 999-lan : Drop Invalid Packets
 set firewall ipv4 name containers-lan rule 999 action 'drop'
 set firewall ipv4 name containers-lan rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name containers-lan rule 999 log 'enable'
-set firewall ipv4 name containers-lan rule 999 state invalid 'enable'
+set firewall ipv4 name containers-lan rule 999 log
+set firewall ipv4 name containers-lan rule 999 state invalid
 
 # (10) From containers to trusted
 set firewall ipv4 name containers-trusted default-action 'drop'
@@ -20,8 +20,8 @@ set firewall ipv4 name containers-trusted enable-default-log
 ### --- 999-trusted : Drop Invalid Packets
 set firewall ipv4 name containers-trusted rule 999 action 'drop'
 set firewall ipv4 name containers-trusted rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name containers-trusted rule 999 log 'enable'
-set firewall ipv4 name containers-trusted rule 999 state invalid 'enable'
+set firewall ipv4 name containers-trusted rule 999 log
+set firewall ipv4 name containers-trusted rule 999 state invalid
 
 # (20) From containers to guest
 set firewall ipv4 name containers-guest default-action 'drop'
@@ -30,8 +30,8 @@ set firewall ipv4 name containers-guest enable-default-log
 ### --- 999-guest : Drop Invalid Packets
 set firewall ipv4 name containers-guest rule 999 action 'drop'
 set firewall ipv4 name containers-guest rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name containers-guest rule 999 log 'enable'
-set firewall ipv4 name containers-guest rule 999 state invalid 'enable'
+set firewall ipv4 name containers-guest rule 999 log
+set firewall ipv4 name containers-guest rule 999 state invalid
 
 # (30) From containers to iot
 set firewall ipv4 name containers-iot default-action 'drop'
@@ -40,8 +40,8 @@ set firewall ipv4 name containers-iot enable-default-log
 ### --- 999-iot : Drop Invalid Packets
 set firewall ipv4 name containers-iot rule 999 action 'drop'
 set firewall ipv4 name containers-iot rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name containers-iot rule 999 log 'enable'
-set firewall ipv4 name containers-iot rule 999 state invalid 'enable'
+set firewall ipv4 name containers-iot rule 999 log
+set firewall ipv4 name containers-iot rule 999 state invalid
 
 # (40) From containers to servers
 set firewall ipv4 name containers-servers default-action 'accept'
@@ -54,8 +54,8 @@ set firewall ipv4 name containers-servers rule 80 protocol 'tcp_udp'
 ### --- 999-servers : Drop Invalid Packets
 set firewall ipv4 name containers-servers rule 999 action 'drop'
 set firewall ipv4 name containers-servers rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name containers-servers rule 999 log 'enable'
-set firewall ipv4 name containers-servers rule 999 state invalid 'enable'
+set firewall ipv4 name containers-servers rule 999 log
+set firewall ipv4 name containers-servers rule 999 state invalid
 
 # (97) From containers to local
 set firewall ipv4 name containers-local default-action 'drop'
@@ -70,8 +70,8 @@ set firewall ipv4 name containers-local rule 10 source port '67,68'
 ### --- 999-local : Drop Invalid Packets
 set firewall ipv4 name containers-local rule 999 action 'drop'
 set firewall ipv4 name containers-local rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name containers-local rule 999 log 'enable'
-set firewall ipv4 name containers-local rule 999 state invalid 'enable'
+set firewall ipv4 name containers-local rule 999 log
+set firewall ipv4 name containers-local rule 999 state invalid
 
 # (99) From containers to wan
 set firewall ipv4 name containers-wan default-action 'accept'

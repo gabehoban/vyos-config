@@ -10,8 +10,8 @@ set firewall ipv4 name guest-lan enable-default-log
 ### --- 999-lan : Drop Invalid Packets
 set firewall ipv4 name guest-lan rule 999 action 'drop'
 set firewall ipv4 name guest-lan rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name guest-lan rule 999 log 'enable'
-set firewall ipv4 name guest-lan rule 999 state invalid 'enable'
+set firewall ipv4 name guest-lan rule 999 log
+set firewall ipv4 name guest-lan rule 999 state invalid
 
 # (20) From guest to trusted
 set firewall ipv4 name guest-trusted default-action 'drop'
@@ -20,8 +20,8 @@ set firewall ipv4 name guest-trusted enable-default-log
 ### --- 999-guest : Drop Invalid Packets
 set firewall ipv4 name guest-trusted rule 999 action 'drop'
 set firewall ipv4 name guest-trusted rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name guest-trusted rule 999 log 'enable'
-set firewall ipv4 name guest-trusted rule 999 state invalid 'enable'
+set firewall ipv4 name guest-trusted rule 999 log
+set firewall ipv4 name guest-trusted rule 999 state invalid
 
 # (30) From guest to iot
 set firewall ipv4 name guest-iot default-action 'drop'
@@ -30,8 +30,8 @@ set firewall ipv4 name guest-iot enable-default-log
 ### --- 999-iot : Drop Invalid Packets
 set firewall ipv4 name guest-iot rule 999 action 'drop'
 set firewall ipv4 name guest-iot rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name guest-iot rule 999 log 'enable'
-set firewall ipv4 name guest-iot rule 999 state invalid 'enable'
+set firewall ipv4 name guest-iot rule 999 log
+set firewall ipv4 name guest-iot rule 999 state invalid
 
 # (40) From guest to servers
 set firewall ipv4 name guest-servers default-action 'drop'
@@ -40,8 +40,8 @@ set firewall ipv4 name guest-servers enable-default-log
 ### --- 999-servers : Drop Invalid Packets
 set firewall ipv4 name guest-servers rule 999 action 'drop'
 set firewall ipv4 name guest-servers rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name guest-servers rule 999 log 'enable'
-set firewall ipv4 name guest-servers rule 999 state invalid 'enable'
+set firewall ipv4 name guest-servers rule 999 log
+set firewall ipv4 name guest-servers rule 999 state invalid
 
 # (95) From guest to containers
 set firewall ipv4 name guest-containers default-action 'drop'
@@ -55,8 +55,8 @@ set firewall ipv4 name guest-containers rule 10 protocol 'tcp_udp'
 ### --- 999-containers : Drop Invalid Packets
 set firewall ipv4 name guest-containers rule 999 action 'drop'
 set firewall ipv4 name guest-containers rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name guest-containers rule 999 log 'enable'
-set firewall ipv4 name guest-containers rule 999 state invalid 'enable'
+set firewall ipv4 name guest-containers rule 999 log
+set firewall ipv4 name guest-containers rule 999 state invalid
 
 # (97) From guest to local
 set firewall ipv4 name guest-local default-action 'drop'
@@ -71,8 +71,8 @@ set firewall ipv4 name guest-local rule 10 source port '67,68'
 ### --- 999-local : Drop Invalid Packets
 set firewall ipv4 name guest-local rule 999 action 'drop'
 set firewall ipv4 name guest-local rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name guest-local rule 999 log 'enable'
-set firewall ipv4 name guest-local rule 999 state invalid 'enable'
+set firewall ipv4 name guest-local rule 999 log
+set firewall ipv4 name guest-local rule 999 state invalid
 
 # From guest to wan
 set firewall ipv4 name guest-wan default-action 'accept'

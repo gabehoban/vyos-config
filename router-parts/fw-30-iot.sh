@@ -10,8 +10,8 @@ set firewall ipv4 name iot-lan enable-default-log
 ### --- 999-lan : Drop Invalid Packets
 set firewall ipv4 name iot-lan rule 999 action 'drop'
 set firewall ipv4 name iot-lan rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name iot-lan rule 999 log 'enable'
-set firewall ipv4 name iot-lan rule 999 state invalid 'enable'
+set firewall ipv4 name iot-lan rule 999 log
+set firewall ipv4 name iot-lan rule 999 state invalid
 
 # (10) From iot to trusted
 set firewall ipv4 name iot-trusted default-action 'drop'
@@ -20,8 +20,8 @@ set firewall ipv4 name iot-trusted enable-default-log
 ### --- 999-trusted : Drop Invalid Packets
 set firewall ipv4 name iot-trusted rule 999 action 'drop'
 set firewall ipv4 name iot-trusted rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name iot-trusted rule 999 log 'enable'
-set firewall ipv4 name iot-trusted rule 999 state invalid 'enable'
+set firewall ipv4 name iot-trusted rule 999 log
+set firewall ipv4 name iot-trusted rule 999 state invalid
 
 # (20) From iot to guest
 set firewall ipv4 name iot-guest default-action 'drop'
@@ -30,8 +30,8 @@ set firewall ipv4 name iot-guest enable-default-log
 ### --- 999-guest : Drop Invalid Packets
 set firewall ipv4 name iot-guest rule 999 action 'drop'
 set firewall ipv4 name iot-guest rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name iot-guest rule 999 log 'enable'
-set firewall ipv4 name iot-guest rule 999 state invalid 'enable'
+set firewall ipv4 name iot-guest rule 999 log
+set firewall ipv4 name iot-guest rule 999 state invalid
 
 # (40) From iot to servers
 set firewall ipv4 name iot-servers default-action 'drop'
@@ -53,8 +53,8 @@ set firewall ipv4 name iot-servers rule 70 source group address-group 'mqtt_clie
 ### --- 999-servers : Drop Invalid Packets
 set firewall ipv4 name iot-servers rule 999 action 'drop'
 set firewall ipv4 name iot-servers rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name iot-servers rule 999 log 'enable'
-set firewall ipv4 name iot-servers rule 999 state invalid 'enable'
+set firewall ipv4 name iot-servers rule 999 log
+set firewall ipv4 name iot-servers rule 999 state invalid
 
 # (95) From iot to containers
 set firewall ipv4 name iot-containers default-action 'accept'
@@ -67,8 +67,8 @@ set firewall ipv4 name iot-containers rule 40 protocol 'tcp_udp'
 ### --- 999-containers : Drop Invalid Packets
 set firewall ipv4 name iot-containers rule 999 action 'drop'
 set firewall ipv4 name iot-containers rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name iot-containers rule 999 log 'enable'
-set firewall ipv4 name iot-containers rule 999 state invalid 'enable'
+set firewall ipv4 name iot-containers rule 999 log
+set firewall ipv4 name iot-containers rule 999 state invalid
 
 # (97) From iot to local
 set firewall ipv4 name iot-local default-action 'drop'
@@ -104,8 +104,8 @@ set firewall ipv4 name iot-local rule 60 source port 'mdns'
 ### --- 999-local : Drop Invalid Packets
 set firewall ipv4 name iot-local rule 999 action 'drop'
 set firewall ipv4 name iot-local rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name iot-local rule 999 log 'enable'
-set firewall ipv4 name iot-local rule 999 state invalid 'enable'
+set firewall ipv4 name iot-local rule 999 log
+set firewall ipv4 name iot-local rule 999 state invalid
 
 # (99) From iot to wan
 set firewall ipv4 name iot-wan default-action 'accept'

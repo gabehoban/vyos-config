@@ -10,8 +10,8 @@ set firewall ipv4 name lan-trusted enable-default-log
 ### --- 999-trusted : Drop Invalid Packets
 set firewall ipv4 name lan-trusted rule 999 action 'drop'
 set firewall ipv4 name lan-trusted rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name lan-trusted rule 999 log 'enable'
-set firewall ipv4 name lan-trusted rule 999 state invalid 'enable'
+set firewall ipv4 name lan-trusted rule 999 log
+set firewall ipv4 name lan-trusted rule 999 state invalid
 
 # (20) From lan to guest
 set firewall ipv4 name lan-guest default-action 'drop'
@@ -20,8 +20,8 @@ set firewall ipv4 name lan-guest enable-default-log
 ### --- 999-guest : Drop Invalid Packets
 set firewall ipv4 name lan-guest rule 999 action 'drop'
 set firewall ipv4 name lan-guest rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name lan-guest rule 999 log 'enable'
-set firewall ipv4 name lan-guest rule 999 state invalid 'enable'
+set firewall ipv4 name lan-guest rule 999 log
+set firewall ipv4 name lan-guest rule 999 state invalid
 
 # (30) From lan to iot
 set firewall ipv4 name lan-iot default-action 'drop'
@@ -30,8 +30,8 @@ set firewall ipv4 name lan-iot enable-default-log
 ### --- 999-iot : Drop Invalid Packets
 set firewall ipv4 name lan-iot rule 999 action 'drop'
 set firewall ipv4 name lan-iot rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name lan-iot rule 999 log 'enable'
-set firewall ipv4 name lan-iot rule 999 state invalid 'enable'
+set firewall ipv4 name lan-iot rule 999 log
+set firewall ipv4 name lan-iot rule 999 state invalid
 
 # (40) From lan to servers
 set firewall ipv4 name lan-servers default-action 'drop'
@@ -40,8 +40,8 @@ set firewall ipv4 name lan-servers enable-default-log
 ### --- 999-servers : Drop Invalid Packets
 set firewall ipv4 name lan-servers rule 999 action 'drop'
 set firewall ipv4 name lan-servers rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name lan-servers rule 999 log 'enable'
-set firewall ipv4 name lan-servers rule 999 state invalid 'enable'
+set firewall ipv4 name lan-servers rule 999 log
+set firewall ipv4 name lan-servers rule 999 state invalid
 
 # (95) From lan to containers
 set firewall ipv4 name lan-containers default-action 'drop'
@@ -60,8 +60,8 @@ set firewall ipv4 name lan-containers rule 20 source group address-group omada_c
 ### --- 999-containers : Drop Invalid Packets
 set firewall ipv4 name lan-containers rule 999 action 'drop'
 set firewall ipv4 name lan-containers rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name lan-containers rule 999 log 'enable'
-set firewall ipv4 name lan-containers rule 999 state invalid 'enable'
+set firewall ipv4 name lan-containers rule 999 log
+set firewall ipv4 name lan-containers rule 999 state invalid
 
 # (97) From lan to local
 set firewall ipv4 name lan-local default-action 'drop'
@@ -81,8 +81,8 @@ set firewall ipv4 name lan-local rule 20 protocol 'udp'
 ### --- 999-local : Drop Invalid Packets
 set firewall ipv4 name lan-local rule 999 action 'drop'
 set firewall ipv4 name lan-local rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name lan-local rule 999 log 'enable'
-set firewall ipv4 name lan-local rule 999 state invalid 'enable'
+set firewall ipv4 name lan-local rule 999 log
+set firewall ipv4 name lan-local rule 999 state invalid
 
 # From lan to wan
 set firewall ipv4 name lan-wan default-action 'accept'

@@ -9,8 +9,8 @@ set firewall ipv4 name trusted-lan description 'From trusted to lan'
 ### --- 999-lan : Drop Invalid Packets
 set firewall ipv4 name trusted-lan rule 999 action 'drop'
 set firewall ipv4 name trusted-lan rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name trusted-lan rule 999 log 'enable'
-set firewall ipv4 name trusted-lan rule 999 state invalid 'enable'
+set firewall ipv4 name trusted-lan rule 999 log
+set firewall ipv4 name trusted-lan rule 999 state invalid
 
 # (20) From trusted to guest
 set firewall ipv4 name trusted-guest default-action 'drop'
@@ -19,8 +19,8 @@ set firewall ipv4 name trusted-guest enable-default-log
 ### --- 999-guest : Drop Invalid Packets
 set firewall ipv4 name trusted-guest rule 999 action 'drop'
 set firewall ipv4 name trusted-guest rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name trusted-guest rule 999 log 'enable'
-set firewall ipv4 name trusted-guest rule 999 state invalid 'enable'
+set firewall ipv4 name trusted-guest rule 999 log
+set firewall ipv4 name trusted-guest rule 999 state invalid
 
 # (30) From trusted to iot
 set firewall ipv4 name trusted-iot default-action 'drop'
@@ -35,8 +35,8 @@ set firewall ipv4 name trusted-iot rule 10 protocol 'tcp'
 ### --- 999-iot : Drop Invalid Packets
 set firewall ipv4 name trusted-iot rule 999 action 'drop'
 set firewall ipv4 name trusted-iot rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name trusted-iot rule 999 log 'enable'
-set firewall ipv4 name trusted-iot rule 999 state invalid 'enable'
+set firewall ipv4 name trusted-iot rule 999 log
+set firewall ipv4 name trusted-iot rule 999 state invalid
 
 # (40) From trusted to servers
 set firewall ipv4 name trusted-servers default-action 'drop'
@@ -70,8 +70,8 @@ set firewall ipv4 name trusted-servers rule 60 protocol 'tcp'
 ### --- 999-servers : Drop Invalid Packets
 set firewall ipv4 name trusted-servers rule 999 action 'drop'
 set firewall ipv4 name trusted-servers rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name trusted-servers rule 999 state invalid 'enable'
-set firewall ipv4 name trusted-servers rule 999 log 'enable'
+set firewall ipv4 name trusted-servers rule 999 state invalid
+set firewall ipv4 name trusted-servers rule 999 log
 
 # (95) From trusted to containers
 set firewall ipv4 name trusted-containers default-action 'accept'
@@ -90,8 +90,8 @@ set firewall ipv4 name trusted-containers rule 20 source group address-group oma
 ### --- 999-containers : Drop Invalid Packets
 set firewall ipv4 name trusted-containers rule 999 action 'drop'
 set firewall ipv4 name trusted-containers rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name trusted-containers rule 999 log 'enable'
-set firewall ipv4 name trusted-containers rule 999 state invalid 'enable'
+set firewall ipv4 name trusted-containers rule 999 log
+set firewall ipv4 name trusted-containers rule 999 state invalid
 
 # (97) From trusted to local
 set firewall ipv4 name trusted-local default-action 'drop'
@@ -132,8 +132,8 @@ set firewall ipv4 name trusted-local rule 902 protocol 'udp'
 ### --- 999-local : Drop Invalid Packets
 set firewall ipv4 name trusted-local rule 999 action 'drop'
 set firewall ipv4 name trusted-local rule 999 description 'Rule: Drop_Invalid'
-set firewall ipv4 name trusted-local rule 999 log 'enable'
-set firewall ipv4 name trusted-local rule 999 state invalid 'enable'
+set firewall ipv4 name trusted-local rule 999 log
+set firewall ipv4 name trusted-local rule 999 state invalid
 
 # From trusted to wan
 set firewall ipv4 name trusted-wan default-action 'accept'

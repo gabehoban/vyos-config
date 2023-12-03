@@ -130,7 +130,7 @@ set firewall ipv4 forward filter default-action 'accept'
 set firewall ipv4 forward filter rule 1 action 'accept'
 set firewall ipv4 forward filter rule 1 state established 'enable'
 set firewall ipv4 forward filter rule 2 action 'drop'
-set firewall ipv4 forward filter rule 2 state invalid 'enable'
+set firewall ipv4 forward filter rule 2 state invalid
 set firewall ipv4 forward filter rule 3 action 'accept'
 set firewall ipv4 forward filter rule 3 state related 'enable'
 
@@ -139,7 +139,7 @@ set firewall ipv4 input filter default-action 'accept'
 set firewall ipv4 input filter rule 1 action 'accept'
 set firewall ipv4 input filter rule 1 state established 'enable'
 set firewall ipv4 input filter rule 2 action 'drop'
-set firewall ipv4 input filter rule 2 state invalid 'enable'
+set firewall ipv4 input filter rule 2 state invalid
 set firewall ipv4 input filter rule 3 action 'accept'
 set firewall ipv4 input filter rule 3 state related 'enable'
 
@@ -148,7 +148,7 @@ set firewall ipv4 output filter default-action 'accept'
 set firewall ipv4 output filter rule 1 action 'accept'
 set firewall ipv4 output filter rule 1 state established 'enable'
 set firewall ipv4 output filter rule 2 action 'drop'
-set firewall ipv4 output filter rule 2 state invalid 'enable'
+set firewall ipv4 output filter rule 2 state invalid
 set firewall ipv4 output filter rule 3 action 'accept'
 set firewall ipv4 output filter rule 3 state related 'enable'
 
