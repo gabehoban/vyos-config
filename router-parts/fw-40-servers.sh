@@ -112,6 +112,11 @@ set firewall ipv4 name servers-local rule 60 description 'Rule: accept_MDNS'
 set firewall ipv4 name servers-local rule 60 destination port 'mdns'
 set firewall ipv4 name servers-local rule 60 protocol 'udp'
 set firewall ipv4 name servers-local rule 60 source port 'mdns'
+### --- 901-local : Drop SMB NetBIOS Traffic (138)
+set firewall ipv4 name servers-local rule 901 action 'drop'
+set firewall ipv4 name servers-local rule 901 description 'Rule: Drop_SMB_NetBIOS'
+set firewall ipv4 name servers-local rule 901 destination port '138'
+set firewall ipv4 name servers-local rule 901 protocol 'udp'
 ### --- 999-local : Drop Invalid Packets
 set firewall ipv4 name servers-local rule 999 action 'drop'
 set firewall ipv4 name servers-local rule 999 description 'Rule: Drop_Invalid'

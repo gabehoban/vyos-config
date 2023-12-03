@@ -78,6 +78,12 @@ set firewall ipv4 name lan-local rule 20 action 'accept'
 set firewall ipv4 name lan-local rule 20 description 'Rule: Accept_NTP'
 set firewall ipv4 name lan-local rule 20 destination port 'ntp'
 set firewall ipv4 name lan-local rule 20 protocol 'udp'
+### --- 060-local : Accept MDNS (5353)
+set firewall ipv4 name lan-local rule 60 action 'accept'
+set firewall ipv4 name lan-local rule 60 description 'Rule: accept_MDNS'
+set firewall ipv4 name lan-local rule 60 destination port 'mdns'
+set firewall ipv4 name lan-local rule 60 protocol 'udp'
+set firewall ipv4 name lan-local rule 60 source port 'mdns'
 ### --- 999-local : Drop Invalid Packets
 set firewall ipv4 name lan-local rule 999 action 'drop'
 set firewall ipv4 name lan-local rule 999 description 'Rule: Drop_Invalid'

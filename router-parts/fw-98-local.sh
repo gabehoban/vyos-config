@@ -7,6 +7,12 @@
 set firewall ipv4 name local-lan default-action 'drop'
 set firewall ipv4 name local-lan description 'From local to lan'
 set firewall ipv4 name local-lan enable-default-log
+### --- 010-lan : Accpet MDNS (5353)
+set firewall ipv4 name local-lan rule 10 action 'accept'
+set firewall ipv4 name local-lan rule 10 description 'Rule: accept_MDNS'
+set firewall ipv4 name local-lan rule 10 destination port 'mdns'
+set firewall ipv4 name local-lan rule 10 protocol 'udp'
+set firewall ipv4 name local-lan rule 10 source port 'mdns'
 ### --- 999-lan : Drop Invalid Packets
 set firewall ipv4 name local-lan rule 999 action 'drop'
 set firewall ipv4 name local-lan rule 999 description 'Rule: Drop_Invalid'
