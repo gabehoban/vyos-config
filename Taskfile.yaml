@@ -14,5 +14,5 @@ tasks:
   update-router:
     internal: true
     cmds:
-      - ssh router -t "cd /config && git pull"
+      - ssh router -t "cd /config && git fetch --all && git reset --hard HEAD && git pull"
       - ssh router -t "cd /config && ./apply-router.sh"
