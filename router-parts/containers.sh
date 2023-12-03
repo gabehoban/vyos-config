@@ -6,6 +6,20 @@
 set container network containers description 'Network for containers'
 set container network containers prefix '10.40.0.0/24'
 
+# adguard
+set container name adguard cap-add 'net-bind-service'
+set container name adguard image 'docker.io/adguard/adguardhome:v0.107.39'
+set container name adguard memory '0'
+set container name adguard network containers address '10.40.0.5'
+set container name adguard restart 'on-failure'
+set container name adguard shared-memory '0'
+set container name adguard volume config destination '/opt/adguardhome/conf'
+set container name adguard volume config mode 'rw'
+set container name adguard volume config source '/config/containers/adguard/config'
+set container name adguard volume work destination '/opt/adguardhome/work'
+set container name adguard volume work mode 'rw'
+set container name adguard volume work source '/config/containers/adguard/work'
+
 # dnsdist
 set container name dnsdist arguments '--log-timestamps'
 set container name dnsdist cap-add 'net-bind-service'
