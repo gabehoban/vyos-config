@@ -56,6 +56,11 @@ set firewall ipv4 name servers-iot rule 40 action 'accept'
 set firewall ipv4 name servers-iot rule 40 description 'Rule: Accept_WEBOS2'
 set firewall ipv4 name servers-iot rule 40 destination port '3001'
 set firewall ipv4 name servers-iot rule 40 protocol 'tcp'
+### --- 060-iot : Accept WOL Traffic (9)
+set firewall ipv4 name servers-iot rule 60 action 'accept'
+set firewall ipv4 name servers-iot rule 60 description 'Rule: Accept_WOL'
+set firewall ipv4 name servers-iot rule 60 destination port '9'
+set firewall ipv4 name servers-iot rule 60 protocol 'udp'
 ### --- 999-iot : Drop Invalid Packets
 set firewall ipv4 name servers-iot rule 999 action 'drop'
 set firewall ipv4 name servers-iot rule 999 description 'Rule: Drop_Invalid'
