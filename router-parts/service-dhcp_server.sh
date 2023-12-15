@@ -130,9 +130,6 @@ set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping seiko ip-address '10.32.40.52'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping seiko mac-address 'd8:3a:dd:68:ec:82'
 
-# skynet     -- K3S Jumphost (VM)
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping skynet ip-address '10.32.40.61'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping skynet mac-address 'bc:24:11:ad:52:1f'
-# TARS       -- K3S Control Server (VM)
+# TARS       -- Primary Podman Container Host (VM)
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping tars ip-address '10.32.40.31'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping tars mac-address 'bc:24:11:50:e2:5e'
