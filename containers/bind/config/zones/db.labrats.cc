@@ -5,7 +5,7 @@
 $TTL 3600
 $ORIGIN labrats.cc.
 @ 3600 IN SOA gateway.labrats.cc. gateway.labrats.cc. (
-    1702609704         ; serial number (epoch timestamp)
+    1702681662         ; serial number (epoch timestamp)
     7200               ; refresh period
     3600               ; retry period
     1209600            ; expire time
@@ -54,3 +54,4 @@ homelab-cluster0              IN  A  10.40.0.8
 
 ; CNAME records
 plex                          IN  CNAME  hubble.labrats.cc.
+home                          IN  CNAME  hubble.labrats.cc.
