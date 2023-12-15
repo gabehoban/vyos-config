@@ -32,8 +32,8 @@ set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 range 0
 set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 range 0 stop '10.32.10.253'
 set service dhcp-server shared-network-name trusted ntp-server 10.32.10.254
 
-set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 static-mapping baymax ip-address '10.32.10.21'
-set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 static-mapping baymax mac-address '08:bf:b8:13:5d:29'
+set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 static-mapping baymax-pc ip-address '10.32.10.21'
+set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 static-mapping baymax-pc mac-address '08:bf:b8:13:5d:29'
 set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 static-mapping gabes-iphone ip-address '10.32.10.22'
 set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 static-mapping gabes-iphone mac-address '54:eb:e9:60:19:b4'
 set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 static-mapping gabes-macbook ip-address '10.32.10.23'
@@ -63,10 +63,10 @@ set service dhcp-server shared-network-name iot ntp-server 10.32.30.254
 ## -- (10.32.30.3x) iot ALEXA ECHO
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping bedroom-echo ip-address '10.32.30.31'
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping bedroom-echo mac-address '58:e4:88:cc:38:71'
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping living-room-echo ip-address '10.32.30.32'
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping living-room-echo mac-address '3c:e4:41:a4:9f:c6'
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping living-room-speaker ip-address '10.32.30.33'
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping living-room-speaker mac-address '58:e4:88:3f:56:c0'
+set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping living-room-echo-show ip-address '10.32.30.32'
+set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping living-room-echo-show mac-address '3c:e4:41:a4:9f:c6'
+set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping living-room-echo-studio ip-address '10.32.30.33'
+set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping living-room-echo-studio mac-address '58:e4:88:3f:56:c0'
 ## -- (10.32.30.4x) iot ESPRESENSE
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping espresense-bedroom ip-address '10.32.30.41'
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping espresense-bedroom mac-address 'b0:a7:32:11:ee:34'
@@ -129,3 +129,10 @@ set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-
 # sekio      -- GPS NTP Time Server 2 (rpi)
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping seiko ip-address '10.32.40.52'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping seiko mac-address 'd8:3a:dd:68:ec:82'
+
+# skynet     -- K3S Jumphost (VM)
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping skynet ip-address '10.32.40.61'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping skynet mac-address 'bc:24:11:ad:52:1f'
+# TARS       -- K3S Control Server (VM)
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping tars ip-address '10.32.40.31'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping tars mac-address 'bc:24:11:50:e2:5e'

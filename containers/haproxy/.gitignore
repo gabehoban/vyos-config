@@ -4,8 +4,5 @@
 # Track certain files and directories
 !.gitignore
 
-!/adguard/
-!/dnsdist/
-!/omada/
-!/haproxy/
-!/bind/
+!/config/
+!/config/haproxy.cfg
