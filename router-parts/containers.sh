@@ -77,6 +77,16 @@ set container name omada-controller volume logs destination '/opt/tplink/EAPCont
 set container name omada-controller volume logs mode 'rw'
 set container name omada-controller volume logs source '/config/containers/omada/logs'
 
+# haproxy-k8s-api
+set container name haproxy-k8s-api image 'docker.io/library/haproxy:2.9.1'
+set container name haproxy-k8s-api memory '0'
+set container name haproxy-k8s-api network containers address '10.40.0.8'
+set container name haproxy-k8s-api restart 'on-failure'
+set container name haproxy-k8s-api shared-memory '0'
+set container name haproxy-k8s-api volume config source '/config/containers/haproxy/config/haproxy.cfg'
+set container name haproxy-k8s-api volume config destination '/usr/local/etc/haproxy/haproxy.cfg'
+set container name haproxy-k8s-api volume config mode 'ro'
+
 # onepassword-connect
 set container name onepassword-connect image 'docker.io/1password/connect-api:1.7.2'
 set container name onepassword-connect environment TZ value 'America/Detroit'

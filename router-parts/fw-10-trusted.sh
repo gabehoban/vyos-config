@@ -67,6 +67,11 @@ set firewall ipv4 name trusted-servers rule 60 action 'accept'
 set firewall ipv4 name trusted-servers rule 60 description 'Rule: Accept_SAMBA'
 set firewall ipv4 name trusted-servers rule 60 destination port '445'
 set firewall ipv4 name trusted-servers rule 60 protocol 'tcp'
+### --- 120-servers : Accept k3s (6443)
+set firewall ipv4 name trusted-servers rule 120 action 'accept'
+set firewall ipv4 name trusted-servers rule 120 description 'Rule: accept_K3S'
+set firewall ipv4 name trusted-servers rule 120 destination port '6443'
+set firewall ipv4 name trusted-servers rule 120 protocol 'tcp'
 ### --- 999-servers : Drop Invalid Packets
 set firewall ipv4 name trusted-servers rule 999 action 'drop'
 set firewall ipv4 name trusted-servers rule 999 description 'Rule: Drop_Invalid'
