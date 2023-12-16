@@ -90,11 +90,11 @@ set firewall ipv4 name local-servers rule 90 action 'accept'
 set firewall ipv4 name local-servers rule 90 description 'Rule: Accept_DNS'
 set firewall ipv4 name local-servers rule 90 destination port '5053'
 set firewall ipv4 name local-servers rule 90 protocol 'tcp_udp'
-### --- 100-servers : Accept InfluxDB Traffic (8086)
+### --- 100-servers : Accept BGP Traffic
 set firewall ipv4 name local-servers rule 100 action 'accept'
-set firewall ipv4 name local-servers rule 100 description 'Rule: Accept_INFLUX'
-set firewall ipv4 name local-servers rule 100 destination port '8086'
-set firewall ipv4 name local-servers rule 100 protocol 'tcp_udp'
+set firewall ipv4 name local-servers rule 100 description 'Rule: Accept_BGP'
+set firewall ipv4 name local-servers rule 100 destination port 'bgp'
+set firewall ipv4 name local-servers rule 100 protocol 'tcp'
 ### --- 110-servers : Accept MDNS (5353)
 set firewall ipv4 name local-servers rule 110 action 'accept'
 set firewall ipv4 name local-servers rule 110 description 'Rule: accept_MDNS'

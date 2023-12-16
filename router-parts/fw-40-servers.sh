@@ -102,11 +102,11 @@ set firewall ipv4 name servers-local rule 20 action 'accept'
 set firewall ipv4 name servers-local rule 20 description 'Rule: Accept_NTP'
 set firewall ipv4 name servers-local rule 20 destination port 'ntp'
 set firewall ipv4 name servers-local rule 20 protocol 'udp'
-### --- 040-local : Accept SNMP Traffic (161)
+### --- 040-local : Accept BGP Traffic
 set firewall ipv4 name servers-local rule 40 action 'accept'
-set firewall ipv4 name servers-local rule 40 description 'Rule: Accept_SNMP'
-set firewall ipv4 name servers-local rule 40 destination port '161'
-set firewall ipv4 name servers-local rule 40 protocol 'udp'
+set firewall ipv4 name servers-local rule 40 description 'Rule: Accept_BGP'
+set firewall ipv4 name servers-local rule 40 destination port 'bgp'
+set firewall ipv4 name servers-local rule 40 protocol 'tcp'
 ### --- 050-local : Accept ICMP Ping
 set firewall ipv4 name servers-local rule 50 action 'accept'
 set firewall ipv4 name servers-local rule 50 description 'Rule: Accept_PING'

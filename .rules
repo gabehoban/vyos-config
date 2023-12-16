@@ -29,7 +29,7 @@
 --- 070-servers : Accept MQTT Traffic (1883)
 --- 080-servers : Accept DNS Traffic (domain,domain-s)
 --- 090-servers : Accept DNS Traffic (5053)
---- 100-servers : Accept InfluxDB Traffic (8086)
+--- 100-servers : Accept BGP Traffic
 --- 110-servers : Accept MDNS (5353)
 --- 999-servers : Drop Invalid Packets
 
@@ -42,7 +42,7 @@
 --- 010-local : Accept DHCP Traffic (67,68)
 --- 020-local : Accept NTP Traffic (123)
 --- 030-local : Accept SSH Traffic (22)
---- 040-local : Accept SNMP Traffic (161)
+--- 040-local : Accept BGP Traffic
 --- 050-local : Accept Ping (ICMP)
 --- 060-local : Accept MDNS (5353)
 --- 999-local : Drop Invalid Packets
