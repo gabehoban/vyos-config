@@ -55,3 +55,4 @@ homelab-cluster0              IN  A  10.40.0.8
 ; CNAME records
 plex                          IN  CNAME  hubble.labrats.cc.
 home                          IN  CNAME  hubble.labrats.cc.
+paperless                     IN  CNAME  hubble.labrats.cc.

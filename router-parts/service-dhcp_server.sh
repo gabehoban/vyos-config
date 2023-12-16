@@ -130,6 +130,12 @@ set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping seiko ip-address '10.32.40.52'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping seiko mac-address 'd8:3a:dd:68:ec:82'
 
-# TARS       -- Primary Podman Container Host (VM)
+# TARS       -- HashiCorp Stack Node 1 (VM)
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping tars ip-address '10.32.40.31'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping tars mac-address 'bc:24:11:50:e2:5e'
+# CASE       -- HashiCorp Stack Node 2 (VM)
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping case ip-address '10.32.40.32'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping case mac-address 'bc:24:11:50:e2:5f'
+# PLEX       -- HashiCorp Stack Node 3 (VM)
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping plex ip-address '10.32.40.33'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping plex mac-address 'bc:24:11:50:e2:60'

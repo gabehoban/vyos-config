@@ -5,6 +5,13 @@ tasks:
     cmds:
       - task: update-remote
       - task: update-router
+      - task: apply-router
+
+  dns-update:
+    cmds:
+      - task: update-remote
+      - task: update-router
+      - ssh router -t "/opt/vyatta/bin/vyatta-op-cmd-wrapper restart container bind"
 
   update-remote:
     internal: true
@@ -15,4 +22,8 @@ tasks:
     internal: true
     cmds:
       - ssh router -t "cd /config && git fetch --all && git reset --hard HEAD && git pull"
+
+  apply-router:
+    internal: true
+    cmds:
       - ssh router -t "cd /config && ./apply-router.sh"
