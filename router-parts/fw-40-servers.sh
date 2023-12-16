@@ -81,6 +81,11 @@ set firewall ipv4 name servers-containers rule 20 description 'Rule: Accept_Omad
 set firewall ipv4 name servers-containers rule 20 destination group address-group controller_omada
 set firewall ipv4 name servers-containers rule 20 protocol 'tcp_udp'
 set firewall ipv4 name servers-containers rule 20 source group address-group omada_portal
+### --- 030-containers : Accept k3s Nodes (src-dst)
+set firewall ipv4 name servers-containers rule 30 action 'accept'
+set firewall ipv4 name servers-containers rule 30 description 'Rule: Accept_K3S_Nodes'
+set firewall ipv4 name servers-containers rule 30 protocol 'tcp_udp'
+set firewall ipv4 name servers-containers rule 30 source group address-group k3s_nodes
 ### --- 999-containers : Drop Invalid Packets
 set firewall ipv4 name servers-containers rule 999 action 'drop'
 set firewall ipv4 name servers-containers rule 999 description 'Rule: Drop_Invalid'

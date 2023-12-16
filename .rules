@@ -36,6 +36,7 @@
 #### containers ----------------------------------------------------------------------
 --- 010-containers : Accept DNS Traffic (domain,domain-s)
 --- 020-containers : Accept Omada Traffic (src-dst)
+--- 030-containers : Accept k3s Nodes (src-dst)
 --- 999-containers : Drop Invalid Packets
 
 #### local ---------------------------------------------------------------------------
