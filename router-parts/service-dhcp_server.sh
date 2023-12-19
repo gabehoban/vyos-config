@@ -130,12 +130,18 @@ set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping seiko ip-address '10.32.40.52'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping seiko mac-address 'd8:3a:dd:68:ec:82'
 
-# TARS       -- HashiCorp Stack Node 1 (VM)
+# TARS       -- K3S Manager Node 1 (VM)
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping tars ip-address '10.32.40.31'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping tars mac-address 'bc:24:11:50:e2:5e'
-# CASE       -- HashiCorp Stack Node 2 (VM)
+# CASE       -- K3S Manager Node 2 (VM)
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping case ip-address '10.32.40.32'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping case mac-address 'bc:24:11:50:e2:5f'
-# PLEX       -- HashiCorp Stack Node 3 (VM)
+# PLEX       -- K3S Manager Node 3 (VM)
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping plex ip-address '10.32.40.33'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping plex mac-address 'bc:24:11:50:e2:60'
+# KIPP       -- K3S Worker Node 1 (VM)
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping kipp ip-address '10.32.40.34'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping kipp mac-address 'bc:24:11:50:e2:61'
+# CADE       -- K3S Worker Node 2 (VM)
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping cade ip-address '10.32.40.35'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping cade mac-address 'bc:24:11:50:e2:62'
