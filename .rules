@@ -31,7 +31,7 @@
 --- 090-servers : Accept DNS Traffic (5053)
 --- 100-servers : Accept BGP Traffic
 --- 110-servers : Accept MDNS (5353)
---- 120-servers : Accept k3s (6443)
+--- 120-servers : Accept MicroK8S (19001)
 --- 130-servers : Accept HaProxy Stats (8080)
 --- 999-servers : Drop Invalid Packets
 
