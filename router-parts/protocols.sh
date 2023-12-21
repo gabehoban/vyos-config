@@ -16,5 +16,5 @@ set protocols bgp neighbor 10.32.40.34 remote-as '64520'
 set protocols bgp neighbor 10.32.40.35 address-family ipv4-unicast
 set protocols bgp neighbor 10.32.40.35 description 'cade'
 set protocols bgp neighbor 10.32.40.35 remote-as '64520'
-set protocols bgp parameters router-id '10.32.0.254'
+set protocols bgp parameters router-id '10.32.40.254'
 set protocols bgp system-as '64521'

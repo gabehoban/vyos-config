@@ -32,6 +32,7 @@
 --- 100-servers : Accept BGP Traffic
 --- 110-servers : Accept MDNS (5353)
 --- 120-servers : Accept k3s (6443)
+--- 130-servers : Accept HaProxy Stats (8080)
 --- 999-servers : Drop Invalid Packets
 
 #### containers ----------------------------------------------------------------------
