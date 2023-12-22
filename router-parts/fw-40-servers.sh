@@ -81,11 +81,6 @@ set firewall ipv4 name servers-containers rule 20 description 'Rule: Accept_Omad
 set firewall ipv4 name servers-containers rule 20 destination group address-group controller_omada
 set firewall ipv4 name servers-containers rule 20 protocol 'tcp_udp'
 set firewall ipv4 name servers-containers rule 20 source group address-group omada_portal
-### --- 030-containers : Accept k3s Nodes (src-dst)
-set firewall ipv4 name servers-containers rule 30 action 'accept'
-set firewall ipv4 name servers-containers rule 30 description 'Rule: Accept_K3S_Nodes'
-set firewall ipv4 name servers-containers rule 30 protocol 'tcp_udp'
-set firewall ipv4 name servers-containers rule 30 source group address-group k3s_nodes
 ### --- 999-containers : Drop Invalid Packets
 set firewall ipv4 name servers-containers rule 999 action 'drop'
 set firewall ipv4 name servers-containers rule 999 description 'Rule: Drop_Invalid'
@@ -107,11 +102,6 @@ set firewall ipv4 name servers-local rule 20 action 'accept'
 set firewall ipv4 name servers-local rule 20 description 'Rule: Accept_NTP'
 set firewall ipv4 name servers-local rule 20 destination port 'ntp'
 set firewall ipv4 name servers-local rule 20 protocol 'udp'
-### --- 040-local : Accept BGP Traffic
-set firewall ipv4 name servers-local rule 40 action 'accept'
-set firewall ipv4 name servers-local rule 40 description 'Rule: Accept_BGP'
-set firewall ipv4 name servers-local rule 40 destination port 'bgp'
-set firewall ipv4 name servers-local rule 40 protocol 'tcp'
 ### --- 050-local : Accept ICMP Ping
 set firewall ipv4 name servers-local rule 50 action 'accept'
 set firewall ipv4 name servers-local rule 50 description 'Rule: Accept_PING'

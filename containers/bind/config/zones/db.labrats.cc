@@ -5,7 +5,7 @@
 $TTL 3600
 $ORIGIN labrats.cc.
 @ 3600 IN SOA gateway.labrats.cc. gateway.labrats.cc. (
-    1702760276         ; serial number (epoch timestamp)
+    1703213380         ; serial number (epoch timestamp)
     7200               ; refresh period
     3600               ; retry period
     1209600            ; expire time
@@ -45,16 +45,8 @@ pve                           IN  A  10.32.40.21
 voyager                       IN  A  10.32.40.22
 endeavour                     IN  A  10.32.40.23
 hubble                        IN  A  10.32.40.25
-tars                          IN  A  10.32.40.31
 casio                         IN  A  10.32.40.51
 sekio                         IN  A  10.32.40.52
 
 ; Containers
-cluster0                      IN  A  10.40.0.8
 adguard                       IN  A  10.40.0.5
-onepassword-connect           IN  A  10.40.0.10
-
-; CNAME records
-plex                          IN  CNAME  hubble.labrats.cc.
-home                          IN  CNAME  hubble.labrats.cc.
-paperless                     IN  CNAME  hubble.labrats.cc.

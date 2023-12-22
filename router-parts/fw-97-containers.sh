@@ -51,11 +51,6 @@ set firewall ipv4 name containers-servers rule 80 action 'accept'
 set firewall ipv4 name containers-servers rule 80 description 'Rule: Accept_DNS'
 set firewall ipv4 name containers-servers rule 80 destination port 'domain,domain-s'
 set firewall ipv4 name containers-servers rule 80 protocol 'tcp_udp'
-### --- 120-servers : Accept k3s (6443)
-set firewall ipv4 name containers-servers rule 120 action 'accept'
-set firewall ipv4 name containers-servers rule 120 description 'Rule: Accept_K3S'
-set firewall ipv4 name containers-servers rule 120 destination port '6443'
-set firewall ipv4 name containers-servers rule 120 protocol 'tcp'
 ### --- 999-servers : Drop Invalid Packets
 set firewall ipv4 name containers-servers rule 999 action 'drop'
 set firewall ipv4 name containers-servers rule 999 description 'Rule: Drop_Invalid'

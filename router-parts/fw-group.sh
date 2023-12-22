@@ -37,11 +37,6 @@ set firewall group address-group iot_http_clients address '10.32.30.41'
 set firewall group address-group iot_http_clients address '10.32.30.42'
 set firewall group address-group iot_http_clients address '10.32.30.43'
 
-# K3S Nodes
-set firewall group address-group k3s_nodes address '10.32.40.31'
-set firewall group address-group k3s_nodes address '10.32.40.32'
-set firewall group address-group k3s_nodes address '10.32.40.33'
-
 # Storage devices
 set firewall group address-group nas address '10.32.40.10'
 

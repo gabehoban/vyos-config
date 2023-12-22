@@ -105,9 +105,6 @@ set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping discovery mac-address '84:2b:2b:45:04:8e'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping discovery-idrac ip-address '10.32.40.11'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping discovery-idrac mac-address '84:2b:2b:45:04:96'
-# skylab     -- proxmox jumphost vm
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping skylab ip-address '10.32.40.20'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping skylab mac-address 'bc:24:11:3d:6d:a3'
 # pve        -- proxmox hypervisor host
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping pve ip-address '10.32.40.21'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping pve mac-address '48:4d:7e:d0:10:e5'
@@ -117,9 +114,6 @@ set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-
 # endeavour  -- proxmox home-assistant vm
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping endeavour ip-address '10.32.40.23'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping endeavour mac-address '02:70:6c:98:d2:3d'
-# titan      -- proxmox media vm
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping titan ip-address '10.32.40.24'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping titan mac-address '86:23:84:57:16:4d'
 # hubble     -- proxmox networking vm
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping hubble ip-address '10.32.40.25'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping hubble mac-address '3e:3b:46:ab:84:96'
@@ -129,19 +123,3 @@ set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-
 # sekio      -- GPS NTP Time Server 2 (rpi)
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping seiko ip-address '10.32.40.52'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping seiko mac-address 'd8:3a:dd:68:ec:82'
-
-# TARS       -- K3S Manager Node 1 (VM)
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping tars ip-address '10.32.40.31'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping tars mac-address 'bc:24:11:50:e2:5e'
-# CASE       -- K3S Manager Node 2 (VM)
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping case ip-address '10.32.40.32'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping case mac-address 'bc:24:11:50:e2:5f'
-# PLEX       -- K3S Manager Node 3 (VM)
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping plex ip-address '10.32.40.33'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping plex mac-address 'bc:24:11:50:e2:60'
-# KIPP       -- K3S Worker Node 1 (VM)
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping kipp ip-address '10.32.40.34'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping kipp mac-address 'bc:24:11:50:e2:61'
-# CADE       -- K3S Worker Node 2 (VM)
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping cade ip-address '10.32.40.35'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping cade mac-address 'bc:24:11:50:e2:62'
