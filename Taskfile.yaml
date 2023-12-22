@@ -11,7 +11,7 @@ tasks:
     cmds:
       - task: update-remote
       - task: update-router
-      - ssh router -t "/opt/vyatta/bin/vyatta-op-cmd-wrapper restart container bind"
+      - ssh router -t "sudo rm -rf /tmp/bind/cache/*.jnl && /opt/vyatta/bin/vyatta-op-cmd-wrapper restart container bind"
 
   update-remote:
     internal: true
