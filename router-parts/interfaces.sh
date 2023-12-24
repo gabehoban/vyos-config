@@ -27,5 +27,8 @@ set interfaces wireguard wg01 description 'WIREGUARD'
 set interfaces wireguard wg01 peer iphone-gabe allowed-ips '10.20.0.21/32'
 set interfaces wireguard wg01 peer iphone-gabe persistent-keepalive '15'
 set interfaces wireguard wg01 peer iphone-gabe public-key "${SECRET_WIREGUARD_CLIENT_0_PUBKEY}"
+set interfaces wireguard wg01 peer macbook-gabe allowed-ips '10.20.0.22/32'
+set interfaces wireguard wg01 peer macbook-gabe persistent-keepalive '15'
+set interfaces wireguard wg01 peer macbook-gabe public-key "${SECRET_WIREGUARD_CLIENT_1_PUBKEY}"
 set interfaces wireguard wg01 port '51820'
 set interfaces wireguard wg01 private-key "${SECRET_WIREGUARD_PRIVKEY}"
