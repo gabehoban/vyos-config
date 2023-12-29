@@ -5,7 +5,7 @@
 $TTL 3600
 $ORIGIN 32.10.in-addr.arpa.
 @ 3600 IN SOA gateway.labrats.cc. gateway.labrats.cc. (
-    1703727155         ; serial number (epoch timestamp)
+    1703809931         ; serial number (epoch timestamp)
     7200               ; refresh period
     3600               ; retry period
     1209600            ; expire time
