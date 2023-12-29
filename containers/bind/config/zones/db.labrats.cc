@@ -5,7 +5,7 @@
 $TTL 3600
 $ORIGIN labrats.cc.
 @ 3600 IN SOA gateway.labrats.cc. gateway.labrats.cc. (
-    1703809931         ; serial number (epoch timestamp)
+    1703810475         ; serial number (epoch timestamp)
     7200               ; refresh period
     3600               ; retry period
     1209600            ; expire time
@@ -56,5 +56,5 @@ jellyfin                      IN  CNAME  voyager.labrats.cc.
 minio                         IN  CNAME  voyager.labrats.cc.
 s3                            IN  CNAME  voyager.labrats.cc.
 frigate                       IN  CNAME  voyager.labrats.cc.
-tdarr                         IN  CNAME  voyager.labrats.cc.
 home                          IN  CNAME  voyager.labrats.cc.
+tdarr                         IN  CNAME  voyager.labrats.cc.
