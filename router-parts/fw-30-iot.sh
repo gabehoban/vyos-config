@@ -38,7 +38,6 @@ set firewall ipv4 name iot-servers default-action 'drop'
 set firewall ipv4 name iot-servers description 'From iot to servers'
 set firewall ipv4 name iot-servers enable-default-log
 ### --- 040-servers : Accept HTTPS Traffic (443)
-### TODO: Limit to only echo show.
 set firewall ipv4 name iot-servers rule 40 action 'accept'
 set firewall ipv4 name iot-servers rule 40 description 'Rule: Accept_HTTPS'
 set firewall ipv4 name iot-servers rule 40 destination port '443'
@@ -50,6 +49,13 @@ set firewall ipv4 name iot-servers rule 70 destination group address-group 'cont
 set firewall ipv4 name iot-servers rule 70 destination port '1883'
 set firewall ipv4 name iot-servers rule 70 protocol 'tcp'
 set firewall ipv4 name iot-servers rule 70 source group address-group 'mqtt_clients'
+### --- 120-servers : Accept Jellyfin Traffic (30013) (JellyfinClients->NAS)
+set firewall ipv4 name iot-servers rule 120 action 'accept'
+set firewall ipv4 name iot-servers rule 120 description 'Rule: Accept_Jellyfin'
+set firewall ipv4 name iot-servers rule 120 destination group address-group 'nas'
+set firewall ipv4 name iot-servers rule 120 destination port '30013'
+set firewall ipv4 name iot-servers rule 120 protocol 'tcp'
+set firewall ipv4 name iot-servers rule 120 source group address-group 'jellyfin_clients'
 ### --- 999-servers : Drop Invalid Packets
 set firewall ipv4 name iot-servers rule 999 action 'drop'
 set firewall ipv4 name iot-servers rule 999 description 'Rule: Drop_Invalid'

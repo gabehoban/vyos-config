@@ -80,8 +80,10 @@ set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapp
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping hallway-cam ip-address '10.32.30.52'
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping hallway-cam mac-address '78:8c:b5:6c:41:b4'
 ## -- (10.32.30.6x) iot MISC
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping lg-webos-tv ip-address '10.32.30.61'
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping lg-webos-tv mac-address '64:cb:e9:8a:01:be'
+set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping lg-tv ip-address '10.32.30.61'
+set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping lg-tv mac-address '64:cb:e9:8a:01:be'
+set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping apple-tv ip-address '10.32.30.62'
+set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping apple-tv mac-address '48:e1:5c:67:53:1e'
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping levoit-purifier ip-address '10.32.30.63'
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping levoit-purifier mac-address '34:86:5d:a0:2d:c4'
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping qingping-air-quality ip-address '10.32.30.64'

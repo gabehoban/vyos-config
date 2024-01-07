@@ -37,6 +37,9 @@ set firewall group address-group iot_http_clients address '10.32.30.41'
 set firewall group address-group iot_http_clients address '10.32.30.42'
 set firewall group address-group iot_http_clients address '10.32.30.43'
 
+# Media Server Clients (IOT)
+set firewall group address-group jellyfin_clients address '10.32.30.62'
+
 # Storage devices
 set firewall group address-group nas address '10.32.40.10'
 
