@@ -3,7 +3,6 @@
 # shellcheck source=/dev/null
 
 set service dhcp-server hostfile-update
-set service dhcp-server host-decl-name
 
 # (0) lan Network
 set service dhcp-server shared-network-name lan authoritative

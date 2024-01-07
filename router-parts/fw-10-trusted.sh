@@ -72,6 +72,11 @@ set firewall ipv4 name trusted-servers rule 120 action 'accept'
 set firewall ipv4 name trusted-servers rule 120 description 'Rule: Accept_Jellyfin'
 set firewall ipv4 name trusted-servers rule 120 destination port '30013'
 set firewall ipv4 name trusted-servers rule 120 protocol 'tcp'
+### --- 130-servers : Accept HomeAssistant Traffic (8123)
+set firewall ipv4 name trusted-servers rule 130 action 'accept'
+set firewall ipv4 name trusted-servers rule 130 description 'Rule: Accept_HomeAssistant'
+set firewall ipv4 name trusted-servers rule 130 destination port '8123'
+set firewall ipv4 name trusted-servers rule 130 protocol 'tcp'
 ### --- 999-servers : Drop Invalid Packets
 set firewall ipv4 name trusted-servers rule 999 action 'drop'
 set firewall ipv4 name trusted-servers rule 999 description 'Rule: Drop_Invalid'

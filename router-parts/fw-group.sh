@@ -3,16 +3,6 @@
 # Blocklist groups
 set firewall group network-group vyos_blocklist description 'Blacklisted IPv4 Sources'
 
-# Interface groups
-set firewall group interface-group IG_wan interface 'eth2'
-set firewall group interface-group IG_lan interface 'eth0'
-set firewall group interface-group IG_trusted interface 'eth0.10'
-set firewall group interface-group IG_trusted interface 'wg01'
-set firewall group interface-group IG_guest interface 'eth0.20'
-set firewall group interface-group IG_iot interface 'eth0.30' 
-set firewall group interface-group IG_servers interface 'eth0.40'
-set firewall group interface-group IG_containers interface 'pod-containers'
-
 # Router (VyOS itself)
 set firewall group address-group router-addresses address '10.32.0.254'
 set firewall group address-group router-addresses address '127.0.0.1'
