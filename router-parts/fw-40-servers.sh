@@ -6,7 +6,7 @@
 # (00) From servers to lan
 set firewall ipv4 name servers-lan default-action 'drop'
 set firewall ipv4 name servers-lan description 'From servers to lan'
-set firewall ipv4 name servers-lan enable-default-log
+set firewall ipv4 name servers-lan default-log
 ### --- 999-lan : Drop Invalid Packets
 set firewall ipv4 name servers-lan rule 999 action 'drop'
 set firewall ipv4 name servers-lan rule 999 description 'Rule: Drop_Invalid'
@@ -16,7 +16,7 @@ set firewall ipv4 name servers-lan rule 999 state invalid
 # (10) From servers to trusted
 set firewall ipv4 name servers-trusted default-action 'drop'
 set firewall ipv4 name servers-trusted description 'From servers to trusted'
-set firewall ipv4 name servers-trusted enable-default-log
+set firewall ipv4 name servers-trusted default-log
 ### --- 010-trusted : Accept Ping (ICMP)
 set firewall ipv4 name servers-trusted rule 10 action 'accept'
 set firewall ipv4 name servers-trusted rule 10 description 'Rule: Accept_ICMP'
@@ -30,7 +30,7 @@ set firewall ipv4 name servers-trusted rule 999 state invalid
 # (20) From servers to guest
 set firewall ipv4 name servers-guest default-action 'drop'
 set firewall ipv4 name servers-guest description 'From servers to guest'
-set firewall ipv4 name servers-guest enable-default-log
+set firewall ipv4 name servers-guest default-log
 ### --- 999-guest : Drop Invalid Packets
 set firewall ipv4 name servers-guest rule 999 action 'drop'
 set firewall ipv4 name servers-guest rule 999 description 'Rule: Drop_Invalid'
@@ -40,7 +40,7 @@ set firewall ipv4 name servers-guest rule 999 state invalid
 # (30) From servers to iot
 set firewall ipv4 name servers-iot default-action 'drop'
 set firewall ipv4 name servers-iot description 'From servers to iot'
-set firewall ipv4 name servers-iot enable-default-log
+set firewall ipv4 name servers-iot default-log
 ### --- 020-iot : Accept RTSP Traffic (554)
 set firewall ipv4 name servers-iot rule 20 action 'accept'
 set firewall ipv4 name servers-iot rule 20 description 'Rule: Accept_RTSP'
@@ -95,7 +95,7 @@ set firewall ipv4 name servers-containers rule 999 state invalid
 # (97) From servers to local
 set firewall ipv4 name servers-local default-action 'drop'
 set firewall ipv4 name servers-local description 'From servers to local'
-set firewall ipv4 name servers-local enable-default-log
+set firewall ipv4 name servers-local default-log
 ### --- 010-local : Accept DHCP Traffic (67,68)
 set firewall ipv4 name servers-local rule 10 action 'accept'
 set firewall ipv4 name servers-local rule 10 description 'Rule: Accept_DHCP'

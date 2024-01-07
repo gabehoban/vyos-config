@@ -6,7 +6,7 @@
 # (10) From lan to trusted
 set firewall ipv4 name lan-trusted default-action 'drop'
 set firewall ipv4 name lan-trusted description 'From lan to trusted'
-set firewall ipv4 name lan-trusted enable-default-log
+set firewall ipv4 name lan-trusted default-log
 ### --- 999-trusted : Drop Invalid Packets
 set firewall ipv4 name lan-trusted rule 999 action 'drop'
 set firewall ipv4 name lan-trusted rule 999 description 'Rule: Drop_Invalid'
@@ -16,7 +16,7 @@ set firewall ipv4 name lan-trusted rule 999 state invalid
 # (20) From lan to guest
 set firewall ipv4 name lan-guest default-action 'drop'
 set firewall ipv4 name lan-guest description 'From lan to guest'
-set firewall ipv4 name lan-guest enable-default-log
+set firewall ipv4 name lan-guest default-log
 ### --- 999-guest : Drop Invalid Packets
 set firewall ipv4 name lan-guest rule 999 action 'drop'
 set firewall ipv4 name lan-guest rule 999 description 'Rule: Drop_Invalid'
@@ -26,7 +26,7 @@ set firewall ipv4 name lan-guest rule 999 state invalid
 # (30) From lan to iot
 set firewall ipv4 name lan-iot default-action 'drop'
 set firewall ipv4 name lan-iot description 'From lan to iot'
-set firewall ipv4 name lan-iot enable-default-log
+set firewall ipv4 name lan-iot default-log
 ### --- 999-iot : Drop Invalid Packets
 set firewall ipv4 name lan-iot rule 999 action 'drop'
 set firewall ipv4 name lan-iot rule 999 description 'Rule: Drop_Invalid'
@@ -36,7 +36,7 @@ set firewall ipv4 name lan-iot rule 999 state invalid
 # (40) From lan to servers
 set firewall ipv4 name lan-servers default-action 'drop'
 set firewall ipv4 name lan-servers description 'From lan to servers'
-set firewall ipv4 name lan-servers enable-default-log
+set firewall ipv4 name lan-servers default-log
 ### --- 999-servers : Drop Invalid Packets
 set firewall ipv4 name lan-servers rule 999 action 'drop'
 set firewall ipv4 name lan-servers rule 999 description 'Rule: Drop_Invalid'
@@ -66,7 +66,7 @@ set firewall ipv4 name lan-containers rule 999 state invalid
 # (97) From lan to local
 set firewall ipv4 name lan-local default-action 'drop'
 set firewall ipv4 name lan-local description 'From lan to local'
-set firewall ipv4 name lan-local enable-default-log
+set firewall ipv4 name lan-local default-log
 ### --- 010-local : Accept DHCP Traffic (67,68)
 set firewall ipv4 name lan-local rule 10 action 'accept'
 set firewall ipv4 name lan-local rule 10 description 'Rule: Accept_DHCP'

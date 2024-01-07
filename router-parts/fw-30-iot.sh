@@ -6,7 +6,7 @@
 # (00) From iot to lan
 set firewall ipv4 name iot-lan default-action 'drop'
 set firewall ipv4 name iot-lan description 'From iot to lan'
-set firewall ipv4 name iot-lan enable-default-log
+set firewall ipv4 name iot-lan default-log
 ### --- 999-lan : Drop Invalid Packets
 set firewall ipv4 name iot-lan rule 999 action 'drop'
 set firewall ipv4 name iot-lan rule 999 description 'Rule: Drop_Invalid'
@@ -16,7 +16,7 @@ set firewall ipv4 name iot-lan rule 999 state invalid
 # (10) From iot to trusted
 set firewall ipv4 name iot-trusted default-action 'drop'
 set firewall ipv4 name iot-trusted description 'From iot to trusted'
-set firewall ipv4 name iot-trusted enable-default-log
+set firewall ipv4 name iot-trusted default-log
 ### --- 999-trusted : Drop Invalid Packets
 set firewall ipv4 name iot-trusted rule 999 action 'drop'
 set firewall ipv4 name iot-trusted rule 999 description 'Rule: Drop_Invalid'
@@ -26,7 +26,7 @@ set firewall ipv4 name iot-trusted rule 999 state invalid
 # (20) From iot to guest
 set firewall ipv4 name iot-guest default-action 'drop'
 set firewall ipv4 name iot-guest description 'From iot to guest'
-set firewall ipv4 name iot-guest enable-default-log
+set firewall ipv4 name iot-guest default-log
 ### --- 999-guest : Drop Invalid Packets
 set firewall ipv4 name iot-guest rule 999 action 'drop'
 set firewall ipv4 name iot-guest rule 999 description 'Rule: Drop_Invalid'
@@ -36,7 +36,7 @@ set firewall ipv4 name iot-guest rule 999 state invalid
 # (40) From iot to servers
 set firewall ipv4 name iot-servers default-action 'drop'
 set firewall ipv4 name iot-servers description 'From iot to servers'
-set firewall ipv4 name iot-servers enable-default-log
+set firewall ipv4 name iot-servers default-log
 ### --- 040-servers : Accept HTTPS Traffic (443)
 set firewall ipv4 name iot-servers rule 40 action 'accept'
 set firewall ipv4 name iot-servers rule 40 description 'Rule: Accept_HTTPS'
@@ -79,7 +79,7 @@ set firewall ipv4 name iot-containers rule 999 state invalid
 # (97) From iot to local
 set firewall ipv4 name iot-local default-action 'drop'
 set firewall ipv4 name iot-local description 'From iot to local'
-set firewall ipv4 name iot-local enable-default-log
+set firewall ipv4 name iot-local default-log
 ### --- 010-local : Accept DHCP Traffic (67,68)
 set firewall ipv4 name iot-local rule 10 action 'accept'
 set firewall ipv4 name iot-local rule 10 description 'Rule: Accept_DHCP'

@@ -32,7 +32,7 @@
 --- 100-servers : Accept BGP Traffic
 --- 110-servers : Accept MDNS (5353)
 --- 120-servers : Accept Jellyfin Traffic (30013)
---- 130-servers : Accept HaProxy Stats (8080)
+--- 130-servers : Accept HomeAssistant Traffic (8123)
 --- 999-servers : Drop Invalid Packets
 
 #### containers ----------------------------------------------------------------------
