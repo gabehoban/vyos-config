@@ -56,6 +56,12 @@ set firewall ipv4 name iot-servers rule 120 destination group address-group 'nas
 set firewall ipv4 name iot-servers rule 120 destination port '30013'
 set firewall ipv4 name iot-servers rule 120 protocol 'tcp'
 set firewall ipv4 name iot-servers rule 120 source group address-group 'jellyfin_clients'
+### --- 140-servers : Accept Apple HomeKit (3722) (AppleTV->Servers)
+set firewall ipv4 name iot-servers rule 140 action 'accept'
+set firewall ipv4 name iot-servers rule 140 description 'Rule: Accept_HomeKit'
+set firewall ipv4 name iot-servers rule 140 destination port '3722'
+set firewall ipv4 name iot-servers rule 140 protocol 'udp'
+set firewall ipv4 name iot-servers rule 140 source group address-group 'apple-tv'
 ### --- 999-servers : Drop Invalid Packets
 set firewall ipv4 name iot-servers rule 999 action 'drop'
 set firewall ipv4 name iot-servers rule 999 description 'Rule: Drop_Invalid'

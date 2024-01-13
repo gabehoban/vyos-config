@@ -33,6 +33,7 @@
 --- 110-servers : Accept MDNS (5353)
 --- 120-servers : Accept Jellyfin Traffic (30013)
 --- 130-servers : Accept HomeAssistant Traffic (8123)
+--- 140-servers : Accept Apple HomeKit (3722) (AppleTV->Servers)
 --- 999-servers : Drop Invalid Packets
 
 #### containers ----------------------------------------------------------------------
