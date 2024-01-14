@@ -110,6 +110,9 @@ set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-
 # endeavour  -- proxmox home-assistant vm
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping endeavour ip-address '10.32.40.23'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping endeavour mac '02:70:6c:98:d2:3d'
+# titan      -- proxmox compute vm
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping titan ip-address '10.32.40.24'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping titan mac '2a:1e:8e:a4:cf:4c'
 # hubble     -- proxmox networking vm
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping hubble ip-address '10.32.40.25'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping hubble mac '3e:3b:46:ab:84:96'
