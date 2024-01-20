@@ -23,15 +23,8 @@ set firewall ipv4 name trusted-guest rule 999 log
 set firewall ipv4 name trusted-guest rule 999 state invalid
 
 # (30) From trusted to iot
-set firewall ipv4 name trusted-iot default-action 'drop'
+set firewall ipv4 name trusted-iot default-action 'accept'
 set firewall ipv4 name trusted-iot description 'From trusted to iot'
-set firewall ipv4 name trusted-iot default-log
-### --- 010-iot : Accept HTTP Traffic (80)
-set firewall ipv4 name trusted-iot rule 10 action 'accept'
-set firewall ipv4 name trusted-iot rule 10 description 'Rule: Accept_HTTP'
-set firewall ipv4 name trusted-iot rule 10 destination group address-group iot_http_clients
-set firewall ipv4 name trusted-iot rule 10 destination port '80'
-set firewall ipv4 name trusted-iot rule 10 protocol 'tcp'
 ### --- 999-iot : Drop Invalid Packets
 set firewall ipv4 name trusted-iot rule 999 action 'drop'
 set firewall ipv4 name trusted-iot rule 999 description 'Rule: Drop_Invalid'

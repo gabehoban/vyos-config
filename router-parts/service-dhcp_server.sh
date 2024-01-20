@@ -62,13 +62,6 @@ set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapp
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping living-room-echo-show mac '3c:e4:41:a4:9f:c6'
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping living-room-echo-studio ip-address '10.32.30.33'
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping living-room-echo-studio mac '58:e4:88:3f:56:c0'
-## -- (10.32.30.4x) iot ESPRESENSE
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping espresense-bedroom ip-address '10.32.30.41'
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping espresense-bedroom mac 'b0:a7:32:11:ee:34'
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping espresense-kitchen ip-address '10.32.30.42'
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping espresense-kitchen mac '40:22:d8:fd:77:6c'
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping espresense-living-room ip-address '10.32.30.43'
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping espresense-living-room mac 'cc:db:a7:d9:81:14'
 ## -- (10.32.30.5x) iot VIDEO
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping kitchen-cam ip-address '10.32.30.51'
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping kitchen-cam mac '78:8c:b5:6c:46:17'
@@ -81,10 +74,8 @@ set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapp
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping apple-tv mac '48:e1:5c:67:53:1e'
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping levoit-purifier ip-address '10.32.30.63'
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping levoit-purifier mac '34:86:5d:a0:2d:c4'
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping qingping-air-quality ip-address '10.32.30.64'
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping qingping-air-quality mac '04:cf:8c:28:c4:5e'
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping pura-diffuser ip-address '10.32.30.65'
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping pura-diffuser mac 'c8:f0:9e:58:01:0c'
+set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping hp-printer ip-address '10.32.30.64'
+set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping hp-printer mac 'a8:b1:3b:2d:04:33'
 
 # (40) Servers Network
 set service dhcp-server shared-network-name servers authoritative
