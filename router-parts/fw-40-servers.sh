@@ -46,6 +46,21 @@ set firewall ipv4 name servers-iot rule 999 description 'Rule: Drop_Invalid'
 set firewall ipv4 name servers-iot rule 999 log
 set firewall ipv4 name servers-iot rule 999 state invalid
 
+# (50) From servers to video
+set firewall ipv4 name servers-video default-action 'drop'
+set firewall ipv4 name servers-video description 'From servers to video'
+set firewall ipv4 name servers-video default-log
+### --- 010-video : Accept RTSP Traffic (rtsp)
+set firewall ipv4 name servers-video rule 10 action 'accept'
+set firewall ipv4 name servers-video rule 10 description 'Rule: Accept_RTSP'
+set firewall ipv4 name servers-video rule 10 destination port 'rtsp'
+set firewall ipv4 name servers-video rule 10 protocol 'tcp_udp'
+### --- 999-video : Drop Invalid Packets
+set firewall ipv4 name servers-video rule 999 action 'drop'
+set firewall ipv4 name servers-video rule 999 description 'Rule: Drop_Invalid'
+set firewall ipv4 name servers-video rule 999 log
+set firewall ipv4 name servers-video rule 999 state invalid
+
 # (95) From servers to containers
 set firewall ipv4 name servers-containers default-action 'accept'
 set firewall ipv4 name servers-containers description 'From servers to containers'

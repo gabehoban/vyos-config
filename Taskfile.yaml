@@ -3,28 +3,21 @@ version: '3'
 tasks:
   router:
     cmds:
-      - task: update-remote
       - task: update-router
       - task: apply-router
-
-  dns-update:
-    cmds:
-      - task: update-remote
-      - task: update-router
-      - ssh router -t "sudo rm -rf /tmp/bind/cache/*.jnl && /opt/vyatta/bin/vyatta-op-cmd-wrapper restart container bind"
-
-  update-remote:
-    internal: true
-    cmds:
-      - git status --porcelain && exit
 
   update-router:
     internal: true
     cmds:
-      - ssh router -t "sudo chown -R router:vyattacfg /config"
+      - ssh router -t "sudo chown -R router:vyattacfg /config && sudo chown -R _ka:_ka /config/dhcp"
       - ssh router -t "cd /config && git fetch --all && git reset --hard HEAD && git pull"
 
   apply-router:
     internal: true
     cmds:
       - ssh router -t "cd /config && ./apply-router.sh"
+
+  dns-update:
+    cmds:
+      - task: update-router
+      - ssh router -t "sudo rm -rf /tmp/bind/cache/*.jnl && /opt/vyatta/bin/vyatta-op-cmd-wrapper restart container bind"

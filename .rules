@@ -36,6 +36,11 @@
 --- 140-servers : Accept Apple HomeKit (3722) (AppleTV->Servers)
 --- 999-servers : Drop Invalid Packets
 
+#### video ------------------------------------------------------------------------
+--- 010-video : Accept RTSP Traffic (rtsp)
+--- 020-video : Accpet MDNS (5353)
+--- 999-video : Drop Invalid Packets
+
 #### containers ----------------------------------------------------------------------
 --- 010-containers : Accept DNS Traffic (domain,domain-s)
 --- 020-containers : Accept Omada Traffic (src-dst)

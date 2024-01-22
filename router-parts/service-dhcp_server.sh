@@ -62,11 +62,6 @@ set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapp
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping living-room-echo-show mac '3c:e4:41:a4:9f:c6'
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping living-room-echo-studio ip-address '10.32.30.33'
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping living-room-echo-studio mac '58:e4:88:3f:56:c0'
-## -- (10.32.30.5x) iot VIDEO
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping kitchen-cam ip-address '10.32.30.51'
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping kitchen-cam mac '78:8c:b5:6c:46:17'
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping hallway-cam ip-address '10.32.30.52'
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping hallway-cam mac '78:8c:b5:6c:41:b4'
 ## -- (10.32.30.6x) iot MISC
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping lg-tv ip-address '10.32.30.61'
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping lg-tv mac '64:cb:e9:8a:01:be'
@@ -113,3 +108,17 @@ set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-
 # sekio      -- GPS NTP Time Server 2 (rpi)
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping seiko ip-address '10.32.40.52'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping seiko mac 'd8:3a:dd:68:ec:82'
+
+# (50) Video Network
+set service dhcp-server shared-network-name video authoritative
+set service dhcp-server shared-network-name video subnet 10.32.50.0/24 default-router '10.32.50.254'
+set service dhcp-server shared-network-name video subnet 10.32.50.0/24 lease '86400'
+set service dhcp-server shared-network-name video subnet 10.32.50.0/24 name-server '10.40.0.6'
+set service dhcp-server shared-network-name video subnet 10.32.50.0/24 range 0 start '10.32.50.200'
+set service dhcp-server shared-network-name video subnet 10.32.50.0/24 range 0 stop '10.32.50.253'
+set service dhcp-server shared-network-name video ntp-server 10.32.50.254
+## -- (10.32.50.5x) video VIDEO
+set service dhcp-server shared-network-name video subnet 10.32.50.0/24 static-mapping kitchen-cam ip-address '10.32.50.51'
+set service dhcp-server shared-network-name video subnet 10.32.50.0/24 static-mapping kitchen-cam mac '78:8c:b5:6c:46:17'
+# set service dhcp-server shared-network-name video subnet 10.32.50.0/24 static-mapping hallway-cam ip-address '10.32.30.52'
+# set service dhcp-server shared-network-name video subnet 10.32.50.0/24 static-mapping hallway-cam mac '78:8c:b5:6c:41:b4'

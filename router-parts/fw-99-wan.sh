@@ -53,6 +53,17 @@ set firewall ipv4 name wan-servers rule 999 description 'Rule: Drop_Invalid'
 set firewall ipv4 name wan-servers rule 999 log
 set firewall ipv4 name wan-servers rule 999 state invalid
 
+# (50) From wan to video
+set firewall ipv4 name wan-video default-action 'drop'
+set firewall ipv4 name wan-video description 'From wan to video'
+set firewall ipv4 name wan-video default-log
+### --- 999-video : Drop Invalid Packets
+set firewall ipv4 name wan-video rule 999 action 'drop'
+set firewall ipv4 name wan-video rule 999 description 'Rule: Drop_Invalid'
+set firewall ipv4 name wan-video rule 999 log
+set firewall ipv4 name wan-video rule 999 state invalid
+
+
 # (95) From wan to containers
 set firewall ipv4 name wan-containers default-action 'drop'
 set firewall ipv4 name wan-containers description 'From wan to containers'

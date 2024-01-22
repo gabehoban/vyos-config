@@ -43,6 +43,16 @@ set firewall ipv4 name guest-servers rule 999 description 'Rule: Drop_Invalid'
 set firewall ipv4 name guest-servers rule 999 log
 set firewall ipv4 name guest-servers rule 999 state invalid
 
+# (50) From guest to video
+set firewall ipv4 name guest-video default-action 'drop'
+set firewall ipv4 name guest-video description 'From guest to video'
+set firewall ipv4 name guest-video default-log
+### --- 999-video : Drop Invalid Packets
+set firewall ipv4 name guest-video rule 999 action 'drop'
+set firewall ipv4 name guest-video rule 999 description 'Rule: Drop_Invalid'
+set firewall ipv4 name guest-video rule 999 log
+set firewall ipv4 name guest-video rule 999 state invalid
+
 # (95) From guest to containers
 set firewall ipv4 name guest-containers default-action 'drop'
 set firewall ipv4 name guest-containers description 'From guest to containers'

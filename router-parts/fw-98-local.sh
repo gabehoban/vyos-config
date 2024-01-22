@@ -107,6 +107,22 @@ set firewall ipv4 name local-servers rule 999 description 'Rule: Drop_Invalid'
 set firewall ipv4 name local-servers rule 999 log
 set firewall ipv4 name local-servers rule 999 state invalid
 
+# (50) From local to video
+set firewall ipv4 name local-video default-action 'drop'
+set firewall ipv4 name local-video description 'From local to video'
+set firewall ipv4 name local-video default-log
+### --- 020-video : Accpet MDNS (5353)
+set firewall ipv4 name local-video rule 10 action 'accept'
+set firewall ipv4 name local-video rule 10 description 'Rule: accept_MDNS'
+set firewall ipv4 name local-video rule 10 destination port 'mdns'
+set firewall ipv4 name local-video rule 10 protocol 'udp'
+set firewall ipv4 name local-video rule 10 source port 'mdns'
+### --- 999-video : Drop Invalid Packets
+set firewall ipv4 name local-video rule 999 action 'drop'
+set firewall ipv4 name local-video rule 999 description 'Rule: Drop_Invalid'
+set firewall ipv4 name local-video rule 999 log
+set firewall ipv4 name local-video rule 999 state invalid
+
 # (95) From local to containers
 set firewall ipv4 name local-containers default-action 'accept'
 set firewall ipv4 name local-containers description 'From local to containers'

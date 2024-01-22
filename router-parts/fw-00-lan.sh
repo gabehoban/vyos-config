@@ -43,6 +43,16 @@ set firewall ipv4 name lan-servers rule 999 description 'Rule: Drop_Invalid'
 set firewall ipv4 name lan-servers rule 999 log
 set firewall ipv4 name lan-servers rule 999 state invalid
 
+# (50) From lan to video
+set firewall ipv4 name lan-video default-action 'drop'
+set firewall ipv4 name lan-video description 'From lan to video'
+set firewall ipv4 name lan-video default-log
+### --- 999-video : Drop Invalid Packets
+set firewall ipv4 name lan-video rule 999 action 'drop'
+set firewall ipv4 name lan-video rule 999 description 'Rule: Drop_Invalid'
+set firewall ipv4 name lan-video rule 999 log
+set firewall ipv4 name lan-video rule 999 state invalid
+
 # (95) From lan to containers
 set firewall ipv4 name lan-containers default-action 'drop'
 set firewall ipv4 name lan-containers description 'From lan to containers'

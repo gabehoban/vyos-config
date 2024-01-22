@@ -76,6 +76,16 @@ set firewall ipv4 name trusted-servers rule 999 description 'Rule: Drop_Invalid'
 set firewall ipv4 name trusted-servers rule 999 state invalid
 set firewall ipv4 name trusted-servers rule 999 log
 
+# (50) From trusted to video
+set firewall ipv4 name trusted-video default-action 'drop'
+set firewall ipv4 name trusted-video description 'From trusted to video'
+set firewall ipv4 name trusted-video default-log
+### --- 999-video : Drop Invalid Packets
+set firewall ipv4 name trusted-video rule 999 action 'drop'
+set firewall ipv4 name trusted-video rule 999 description 'Rule: Drop_Invalid'
+set firewall ipv4 name trusted-video rule 999 log
+set firewall ipv4 name trusted-video rule 999 state invalid
+
 # (95) From trusted to containers
 set firewall ipv4 name trusted-containers default-action 'accept'
 set firewall ipv4 name trusted-containers description 'From trusted to containers'

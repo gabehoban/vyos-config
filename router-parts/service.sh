@@ -17,6 +17,7 @@ set service mdns repeater interface 'eth0'
 set service mdns repeater interface 'eth0.10'
 set service mdns repeater interface 'eth0.30'
 set service mdns repeater interface 'eth0.40'
+set service mdns repeater interface 'eth0.50'
 
 # SSH server
 set service ssh disable-password-authentication

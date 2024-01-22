@@ -13,6 +13,8 @@ set interfaces ethernet eth0 vif 30 address '10.32.30.254/24'
 set interfaces ethernet eth0 vif 30 description 'iot'
 set interfaces ethernet eth0 vif 40 address '10.32.40.254/24'
 set interfaces ethernet eth0 vif 40 description 'servers'
+set interfaces ethernet eth0 vif 50 address '10.32.50.254/24'
+set interfaces ethernet eth0 vif 50 description 'video'
 set interfaces ethernet eth0 hw-id '00:23:24:c2:f3:07'
 
 set interfaces ethernet eth2 address 'dhcp'

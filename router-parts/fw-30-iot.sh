@@ -68,6 +68,16 @@ set firewall ipv4 name iot-servers rule 999 description 'Rule: Drop_Invalid'
 set firewall ipv4 name iot-servers rule 999 log
 set firewall ipv4 name iot-servers rule 999 state invalid
 
+# (50) From iot to video
+set firewall ipv4 name iot-video default-action 'drop'
+set firewall ipv4 name iot-video description 'From iot to video'
+set firewall ipv4 name iot-video default-log
+### --- 999-video : Drop Invalid Packets
+set firewall ipv4 name iot-video rule 999 action 'drop'
+set firewall ipv4 name iot-video rule 999 description 'Rule: Drop_Invalid'
+set firewall ipv4 name iot-video rule 999 log
+set firewall ipv4 name iot-video rule 999 state invalid
+
 # (95) From iot to containers
 set firewall ipv4 name iot-containers default-action 'accept'
 set firewall ipv4 name iot-containers description 'From iot to containers'
