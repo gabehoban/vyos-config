@@ -9,7 +9,7 @@ tasks:
   update-router:
     internal: true
     cmds:
-      - ssh router -t "sudo chown -R router:vyattacfg /config && sudo chown -R _ka:_ka /config/dhcp"
+      - ssh router -t "sudo chown -R router:vyattacfg /config && sudo chown -R _kea:_kea /config/dhcp"
       - ssh router -t "cd /config && git fetch --all && git reset --hard HEAD && git pull"
 
   apply-router:

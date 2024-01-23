@@ -70,6 +70,11 @@ set firewall ipv4 name trusted-servers rule 130 action 'accept'
 set firewall ipv4 name trusted-servers rule 130 description 'Rule: Accept_HomeAssistant'
 set firewall ipv4 name trusted-servers rule 130 destination port '8123'
 set firewall ipv4 name trusted-servers rule 130 protocol 'tcp'
+### --- 150-servers : Accept AD LDAP (389)
+set firewall ipv4 name trusted-servers rule 150 action 'accept'
+set firewall ipv4 name trusted-servers rule 150 description 'Rule: Accept_LDAP'
+set firewall ipv4 name trusted-servers rule 150 destination port '389'
+set firewall ipv4 name trusted-servers rule 150 protocol 'tcp_udp'
 ### --- 999-servers : Drop Invalid Packets
 set firewall ipv4 name trusted-servers rule 999 action 'drop'
 set firewall ipv4 name trusted-servers rule 999 description 'Rule: Drop_Invalid'

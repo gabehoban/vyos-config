@@ -21,7 +21,7 @@ set container name cloudflare-ddns shared-memory '0'
 
 # technitium
 set container name technitium cap-add 'net-bind-service'
-set container name technitium image 'technitium/dns-server:11.5.3'
+set container name technitium image 'docker.io/technitium/dns-server:11.5.3'
 set container name technitium memory '0'
 set container name technitium network containers address '10.40.0.4'
 set container name technitium restart 'on-failure'
