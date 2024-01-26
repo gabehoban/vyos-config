@@ -70,11 +70,6 @@ set firewall ipv4 name trusted-servers rule 130 action 'accept'
 set firewall ipv4 name trusted-servers rule 130 description 'Rule: Accept_HomeAssistant'
 set firewall ipv4 name trusted-servers rule 130 destination port '8123'
 set firewall ipv4 name trusted-servers rule 130 protocol 'tcp'
-### --- 150-servers : Accept AD LDAP (389)
-set firewall ipv4 name trusted-servers rule 150 action 'accept'
-set firewall ipv4 name trusted-servers rule 150 description 'Rule: Accept_LDAP'
-set firewall ipv4 name trusted-servers rule 150 destination port '389'
-set firewall ipv4 name trusted-servers rule 150 protocol 'tcp_udp'
 ### --- 999-servers : Drop Invalid Packets
 set firewall ipv4 name trusted-servers rule 999 action 'drop'
 set firewall ipv4 name trusted-servers rule 999 description 'Rule: Drop_Invalid'
@@ -99,12 +94,6 @@ set firewall ipv4 name trusted-containers rule 10 action 'accept'
 set firewall ipv4 name trusted-containers rule 10 description 'Rule: Accept_DNS'
 set firewall ipv4 name trusted-containers rule 10 destination port 'domain,domain-s'
 set firewall ipv4 name trusted-containers rule 10 protocol 'tcp_udp'
-### --- 020-containers : Accept Omada Traffic (src-dst)
-set firewall ipv4 name trusted-containers rule 20 action 'accept'
-set firewall ipv4 name trusted-containers rule 20 description 'Rule: Accept_Omada'
-set firewall ipv4 name trusted-containers rule 20 destination group address-group controller_omada
-set firewall ipv4 name trusted-containers rule 20 protocol 'tcp_udp'
-set firewall ipv4 name trusted-containers rule 20 source group address-group omada_portal
 ### --- 999-containers : Drop Invalid Packets
 set firewall ipv4 name trusted-containers rule 999 action 'drop'
 set firewall ipv4 name trusted-containers rule 999 description 'Rule: Drop_Invalid'

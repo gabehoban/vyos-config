@@ -2,17 +2,16 @@
 # shellcheck shell=bash
 # shellcheck source=/dev/null
 
-set service dhcp-server hostfile-update
-
 # (0) lan Network
 set service dhcp-server shared-network-name lan authoritative
-set service dhcp-server shared-network-name lan subnet 10.32.0.0/24 default-router '10.32.0.254'
-set service dhcp-server shared-network-name lan subnet 10.32.0.0/24 domain-name 'labrats.cc'
+set service dhcp-server shared-network-name lan subnet 10.32.0.0/24 subnet-id 99
 set service dhcp-server shared-network-name lan subnet 10.32.0.0/24 lease '86400'
-set service dhcp-server shared-network-name lan subnet 10.32.0.0/24 name-server '10.40.0.6'
+set service dhcp-server shared-network-name lan subnet 10.32.0.0/24 option default-router '10.32.0.254'
+set service dhcp-server shared-network-name lan subnet 10.32.0.0/24 option domain-name 'labrats.cc'
+set service dhcp-server shared-network-name lan subnet 10.32.0.0/24 option name-server '10.40.0.6'
 set service dhcp-server shared-network-name lan subnet 10.32.0.0/24 range 0 start '10.32.0.200'
 set service dhcp-server shared-network-name lan subnet 10.32.0.0/24 range 0 stop '10.32.0.253'
-set service dhcp-server shared-network-name lan ntp-server 10.32.0.254
+# set service dhcp-server shared-network-name lan ntp-server 10.32.0.254
 
 set service dhcp-server shared-network-name lan subnet 10.32.0.0/24 static-mapping tplink-switch ip-address '10.32.0.21'
 set service dhcp-server shared-network-name lan subnet 10.32.0.0/24 static-mapping tplink-switch mac '54:af:97:0E:80:c9'
@@ -21,13 +20,14 @@ set service dhcp-server shared-network-name lan subnet 10.32.0.0/24 static-mappi
 
 # (10) Trusted Network
 set service dhcp-server shared-network-name trusted authoritative
-set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 default-router '10.32.10.254'
-set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 domain-name 'labrats.cc'
+set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 subnet-id 10
 set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 lease '86400'
-set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 name-server '10.40.0.6'
+set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 option default-router '10.32.10.254'
+set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 option domain-name 'labrats.cc'
+set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 option name-server '10.40.0.6'
 set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 range 0 start '10.32.10.200'
 set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 range 0 stop '10.32.10.253'
-set service dhcp-server shared-network-name trusted ntp-server 10.32.10.254
+# set service dhcp-server shared-network-name trusted ntp-server 10.32.10.254
 
 set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 static-mapping baymax-pc ip-address '10.32.10.21'
 set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 static-mapping baymax-pc mac '08:bf:b8:13:5d:29'
@@ -38,9 +38,10 @@ set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 static-
 
 # (20) Guest Network
 set service dhcp-server shared-network-name guest authoritative
-set service dhcp-server shared-network-name guest subnet 10.32.20.0/24 default-router '10.32.20.254'
+set service dhcp-server shared-network-name guest subnet 10.32.20.0/24 subnet-id 20
 set service dhcp-server shared-network-name guest subnet 10.32.20.0/24 lease '86400'
-set service dhcp-server shared-network-name guest subnet 10.32.20.0/24 name-server '10.40.0.6'
+set service dhcp-server shared-network-name guest subnet 10.32.20.0/24 option default-router '10.32.20.254'
+set service dhcp-server shared-network-name guest subnet 10.32.20.0/24 option name-server '10.40.0.6'
 set service dhcp-server shared-network-name guest subnet 10.32.20.0/24 range 0 start '10.32.20.200'
 set service dhcp-server shared-network-name guest subnet 10.32.20.0/24 range 0 stop '10.32.20.253'
 
@@ -49,12 +50,13 @@ set service dhcp-server shared-network-name guest subnet 10.32.20.0/24 static-ma
 
 # (30) iot Network
 set service dhcp-server shared-network-name iot authoritative
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 default-router '10.32.30.254'
+set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 subnet-id 30
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 lease '86400'
-set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 name-server '10.40.0.6'
+set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 option default-router '10.32.30.254'
+set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 option name-server '10.40.0.6'
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 range 0 start '10.32.30.200'
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 range 0 stop '10.32.30.253'
-set service dhcp-server shared-network-name iot ntp-server 10.32.30.254
+# set service dhcp-server shared-network-name iot ntp-server 10.32.30.254
 ## -- (10.32.30.3x) iot ALEXA ECHO
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping bedroom-echo ip-address '10.32.30.31'
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping bedroom-echo mac '58:e4:88:cc:38:71'
@@ -74,14 +76,14 @@ set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapp
 
 # (40) Servers Network
 set service dhcp-server shared-network-name servers authoritative
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 default-router '10.32.40.254'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 domain-name 'labrats.cc'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 subnet-id 40
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 lease '86400'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 name-server '10.40.0.6'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 option default-router '10.32.40.254'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 option domain-name 'labrats.cc'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 option name-server '10.40.0.6'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 range 0 start '10.32.40.200'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 range 0 stop '10.32.40.253'
-set service dhcp-server shared-network-name servers ntp-server 10.32.40.254
-
+# set service dhcp-server shared-network-name servers ntp-server 10.32.40.254
 # discovery  -- truenas storage host
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping discovery ip-address '10.32.40.10'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping discovery mac '84:2b:2b:45:04:8e'
@@ -111,14 +113,13 @@ set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-
 
 # (50) Video Network
 set service dhcp-server shared-network-name video authoritative
-set service dhcp-server shared-network-name video subnet 10.32.50.0/24 default-router '10.32.50.254'
+set service dhcp-server shared-network-name video subnet 10.32.50.0/24 subnet-id 50
 set service dhcp-server shared-network-name video subnet 10.32.50.0/24 lease '86400'
-set service dhcp-server shared-network-name video subnet 10.32.50.0/24 name-server '10.40.0.6'
+set service dhcp-server shared-network-name video subnet 10.32.50.0/24 option default-router '10.32.50.254'
+set service dhcp-server shared-network-name video subnet 10.32.50.0/24 option name-server '10.40.0.6'
 set service dhcp-server shared-network-name video subnet 10.32.50.0/24 range 0 start '10.32.50.200'
 set service dhcp-server shared-network-name video subnet 10.32.50.0/24 range 0 stop '10.32.50.253'
-set service dhcp-server shared-network-name video ntp-server 10.32.50.254
+# set service dhcp-server shared-network-name video ntp-server 10.32.50.254
 ## -- (10.32.50.5x) video VIDEO
 set service dhcp-server shared-network-name video subnet 10.32.50.0/24 static-mapping kitchen-cam ip-address '10.32.50.51'
 set service dhcp-server shared-network-name video subnet 10.32.50.0/24 static-mapping kitchen-cam mac '78:8c:b5:6c:46:17'
-# set service dhcp-server shared-network-name video subnet 10.32.50.0/24 static-mapping hallway-cam ip-address '10.32.30.52'
-# set service dhcp-server shared-network-name video subnet 10.32.50.0/24 static-mapping hallway-cam mac '78:8c:b5:6c:41:b4'
