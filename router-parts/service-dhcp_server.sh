@@ -95,15 +95,9 @@ set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-
 # endeavour  -- proxmox home-assistant vm
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping endeavour ip-address '10.32.40.23'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping endeavour mac '02:70:6c:98:d2:3d'
-# node-tars  -- homelab vm
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping node-tars ip-address '10.32.40.31'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping node-tars mac '2a:1e:8e:a4:cf:41'
-# node-case  -- homelab vm
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping node-case ip-address '10.32.40.32'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping node-case mac '2a:1e:8e:a4:cf:42'
-# node-kipp  -- homelab vm
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping node-kipp ip-address '10.32.40.33'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping node-kipp mac '2a:1e:8e:a4:cf:43'
+# TARS       -- proxmox homelab vm
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping TARS ip-address '10.32.40.31'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping TARS mac '2a:1e:8e:a4:cf:41'
 # casio      -- GPS NTP Time Server 1 (rpi)
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping casio ip-address '10.32.40.51'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping casio mac 'd8:3a:dd:68:0b:81'

@@ -19,18 +19,6 @@ set container name cloudflare-ddns memory '0'
 set container name cloudflare-ddns restart 'on-failure'
 set container name cloudflare-ddns shared-memory '0'
 
-# technitium
-set container name technitium cap-add 'net-bind-service'
-set container name technitium image 'docker.io/technitium/dns-server:11.5.3'
-set container name technitium memory '0'
-set container name technitium network containers address '10.40.0.4'
-set container name technitium restart 'on-failure'
-set container name technitium shared-memory '0'
-set container name technitium environment DNS_SERVER_DOMAIN value 'labrats.cc'
-set container name technitium volume config destination '/etc/dns'
-set container name technitium volume config source '/config/containers/technitium/config'
-set container name technitium volume config mode 'rw'
-
 # adguard
 set container name adguard cap-add 'net-bind-service'
 set container name adguard image 'docker.io/adguard/adguardhome:v0.107.43'
