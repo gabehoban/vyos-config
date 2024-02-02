@@ -29,7 +29,7 @@
 --- 070-servers : Accept MQTT Traffic (1883)
 --- 080-servers : Accept DNS Traffic (domain,domain-s)
 --- 090-servers : Accept DNS Traffic (5053)
---- 100-servers : Accept BGP Traffic
+--- 100-servers : Accept SYSLOG Traffic (6001)
 --- 110-servers : Accept MDNS (5353)
 --- 120-servers : Accept Jellyfin Traffic (30013)
 --- 130-servers : Accept HomeAssistant Traffic (8123)

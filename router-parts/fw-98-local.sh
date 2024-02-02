@@ -70,30 +70,15 @@ set firewall ipv4 name local-servers rule 10 action 'accept'
 set firewall ipv4 name local-servers rule 10 description 'Rule: Accept_NTP'
 set firewall ipv4 name local-servers rule 10 destination port 'ntp'
 set firewall ipv4 name local-servers rule 10 protocol 'udp'
-### --- 030-servers : Accept HTTP Traffic (80)
-set firewall ipv4 name local-servers rule 30 action 'accept'
-set firewall ipv4 name local-servers rule 30 description 'Rule: Accept_HTTP'
-set firewall ipv4 name local-servers rule 30 destination port '80'
-set firewall ipv4 name local-servers rule 30 protocol 'tcp'
-### --- 040-servers : Accept HTTPS Traffic (443)
-set firewall ipv4 name local-servers rule 40 action 'accept'
-set firewall ipv4 name local-servers rule 40 description 'Rule: Accept_HTTPS'
-set firewall ipv4 name local-servers rule 40 destination port '443'
-set firewall ipv4 name local-servers rule 40 protocol 'tcp'
 ### --- 080-servers : Accept DNS Traffic (domain,domain-s)
 set firewall ipv4 name local-servers rule 80 action 'accept'
 set firewall ipv4 name local-servers rule 80 description 'Rule: Accept_DNS'
 set firewall ipv4 name local-servers rule 80 destination port 'domain,domain-s'
 set firewall ipv4 name local-servers rule 80 protocol 'tcp_udp'
-### --- 090-servers : Accept DNS Traffic (5053)
-set firewall ipv4 name local-servers rule 90 action 'accept'
-set firewall ipv4 name local-servers rule 90 description 'Rule: Accept_DNS'
-set firewall ipv4 name local-servers rule 90 destination port '5053'
-set firewall ipv4 name local-servers rule 90 protocol 'tcp_udp'
-### --- 100-servers : Accept BGP Traffic
+### --- 100-servers : Accept SYSLOG Traffic (6001)
 set firewall ipv4 name local-servers rule 100 action 'accept'
-set firewall ipv4 name local-servers rule 100 description 'Rule: Accept_BGP'
-set firewall ipv4 name local-servers rule 100 destination port 'bgp'
+set firewall ipv4 name local-servers rule 100 description 'Rule: Accept_SYSLOG'
+set firewall ipv4 name local-servers rule 100 destination port '6001'
 set firewall ipv4 name local-servers rule 100 protocol 'tcp'
 ### --- 110-servers : Accept MDNS (5353)
 set firewall ipv4 name local-servers rule 110 action 'accept'

@@ -20,6 +20,13 @@ set system name-server '1.1.1.1'
 # Sysctl
 set system sysctl parameter kernel.pty.max value '24000'
 
+# Logging
+set system syslog global facility all level info
+set system syslog host 10.32.40.10 facility kern level 'warning'
+set system syslog host 10.32.40.10 protocol 'tcp'
+set system syslog host 10.32.40.10 port '6001'
+set system syslog host 10.32.40.10 format 'octet-counted'
+
 # System options
 set system option reboot-on-panic
 
