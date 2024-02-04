@@ -88,6 +88,11 @@ set firewall ipv4 name lan-local rule 60 description 'Rule: accept_MDNS'
 set firewall ipv4 name lan-local rule 60 destination port 'mdns'
 set firewall ipv4 name lan-local rule 60 protocol 'udp'
 set firewall ipv4 name lan-local rule 60 source port 'mdns'
+### --- 990-local : Drop Omada Related Packets
+set firewall ipv4 name lan-local rule 990 action 'drop'
+set firewall ipv4 name lan-local rule 990 description 'Rule: Drop_OMADA'
+set firewall ipv4 name lan-local rule 990 destination port '29810'
+set firewall ipv4 name lan-local rule 990 protocol 'udp'
 ### --- 999-local : Drop Invalid Packets
 set firewall ipv4 name lan-local rule 999 action 'drop'
 set firewall ipv4 name lan-local rule 999 description 'Rule: Drop_Invalid'
