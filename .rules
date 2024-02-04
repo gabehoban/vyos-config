@@ -52,7 +52,7 @@
 --- 010-local : Accept DHCP Traffic (67,68)
 --- 020-local : Accept NTP Traffic (123)
 --- 030-local : Accept SSH Traffic (22)
---- 040-local : Accept BGP Traffic
+--- 040-local : Accept DNS Traffic
 --- 050-local : Accept Ping (ICMP)
 --- 060-local : Accept MDNS (5353)
 --- 999-local : Drop Invalid Packets

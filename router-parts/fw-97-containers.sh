@@ -77,6 +77,11 @@ set firewall ipv4 name containers-local rule 10 description 'Rule: Accept_DHCP'
 set firewall ipv4 name containers-local rule 10 destination port '67,68'
 set firewall ipv4 name containers-local rule 10 protocol 'udp'
 set firewall ipv4 name containers-local rule 10 source port '67,68'
+### --- 040-local : Accept DNS Traffic
+set firewall ipv4 name containers-local rule 40 action 'accept'
+set firewall ipv4 name containers-local rule 40 description 'Rule: Accept_DNS'
+set firewall ipv4 name containers-local rule 40 destination port 'domain,domain-s'
+set firewall ipv4 name containers-local rule 40 protocol 'tcp_udp'
 ### --- 999-local : Drop Invalid Packets
 set firewall ipv4 name containers-local rule 999 action 'drop'
 set firewall ipv4 name containers-local rule 999 description 'Rule: Drop_Invalid'
