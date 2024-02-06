@@ -66,7 +66,7 @@ jobs:
               --custom-package "tree"
 
       - name: Create release with artifact
-        uses: ncipollo/release-action@6c75be85e571768fa31b40abf38de58ba0397db5 # v1
+        uses: ncipollo/release-action@2c591bcc8ecdcd2db72b97d6147f871fcd833ba5 # v1
         with:
           token: "${{ steps.generate-token.outputs.token }}"
           tag: "v${{ steps.vars.outputs.tag-name }}"
