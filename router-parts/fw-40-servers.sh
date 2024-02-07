@@ -100,6 +100,11 @@ set firewall ipv4 name servers-local rule 60 description 'Rule: accept_MDNS'
 set firewall ipv4 name servers-local rule 60 destination port 'mdns'
 set firewall ipv4 name servers-local rule 60 protocol 'udp'
 set firewall ipv4 name servers-local rule 60 source port 'mdns'
+### --- 070-local : Accept BGP Traffic (bgp)
+set firewall ipv4 name servers-local rule 70 action 'accept'
+set firewall ipv4 name servers-local rule 70 description 'Rule: accept_bgp'
+set firewall ipv4 name servers-local rule 70 destination port 'bgp'
+set firewall ipv4 name servers-local rule 70 protocol 'tcp'
 ### --- 901-local : Drop SMB NetBIOS Traffic (138)
 set firewall ipv4 name servers-local rule 901 action 'drop'
 set firewall ipv4 name servers-local rule 901 description 'Rule: Drop_SMB_NetBIOS'

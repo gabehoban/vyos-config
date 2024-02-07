@@ -70,6 +70,11 @@ set firewall ipv4 name local-servers rule 10 action 'accept'
 set firewall ipv4 name local-servers rule 10 description 'Rule: Accept_NTP'
 set firewall ipv4 name local-servers rule 10 destination port 'ntp'
 set firewall ipv4 name local-servers rule 10 protocol 'udp'
+### --- 070-servers : Accept BGP Traffic (bgp)
+set firewall ipv4 name local-servers rule 70 action 'accept'
+set firewall ipv4 name local-servers rule 70 description 'Rule: accept_bgp'
+set firewall ipv4 name local-servers rule 70 destination port 'bgp'
+set firewall ipv4 name local-servers rule 70 protocol 'tcp'
 ### --- 080-servers : Accept DNS Traffic (domain,domain-s)
 set firewall ipv4 name local-servers rule 80 action 'accept'
 set firewall ipv4 name local-servers rule 80 description 'Rule: Accept_DNS'
