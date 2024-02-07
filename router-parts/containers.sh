@@ -71,3 +71,13 @@ set container name onepassword-sync volume credentials mode 'ro'
 set container name onepassword-sync volume data source '/tmp/onepassword/data'
 set container name onepassword-sync volume data destination '/home/opuser/.op/data'
 set container name onepassword-sync volume data mode 'rw'
+
+# haproxy-k8s-api
+set container name haproxy-k8s-api image 'docker.io/library/haproxy:2.9.4'
+set container name haproxy-k8s-api memory '0'
+set container name haproxy-k8s-api network containers address '10.40.0.9'
+set container name haproxy-k8s-api restart 'on-failure'
+set container name haproxy-k8s-api shared-memory '0'
+set container name haproxy-k8s-api volume config source '/config/containers/haproxy/config/haproxy.cfg'
+set container name haproxy-k8s-api volume config destination '/usr/local/etc/haproxy/haproxy.cfg'
+set container name haproxy-k8s-api volume config mode 'ro'
