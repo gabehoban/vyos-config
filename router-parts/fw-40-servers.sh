@@ -21,6 +21,11 @@ set firewall ipv4 name servers-trusted default-log
 set firewall ipv4 name servers-trusted rule 10 action 'accept'
 set firewall ipv4 name servers-trusted rule 10 description 'Rule: Accept_ICMP'
 set firewall ipv4 name servers-trusted rule 10 protocol 'icmp'
+### --- 020-trusted : Accept ollama (11434 )
+set firewall ipv4 name servers-trusted rule 20 action 'accept'
+set firewall ipv4 name servers-trusted rule 20 description 'Rule: Accept_OLLAMA'
+set firewall ipv4 name servers-trusted rule 20 destination port '11434'
+set firewall ipv4 name servers-trusted rule 20 protocol 'tcp'
 ### --- 999-trusted : Drop Invalid Packets
 set firewall ipv4 name servers-trusted rule 999 action 'drop'
 set firewall ipv4 name servers-trusted rule 999 description 'Rule: Drop_Invalid'

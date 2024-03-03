@@ -98,15 +98,18 @@ set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-
 # TARS       -- proxmox homelab vm
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping TARS ip-address '10.32.40.31'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping TARS mac '2a:1e:8e:a4:cf:41'
-# k3s-granite
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping granite ip-address '10.32.40.25'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping granite mac '2a:1e:8e:a4:cf:51'
-# k3s-genesis
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping genesis ip-address '10.32.40.26'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping genesis mac '2a:1e:8e:a4:cf:52'
-# k3s-galileo
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping galileo ip-address '10.32.40.27'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping galileo mac '2a:1e:8e:a4:cf:53'
+# node-controller
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping node-controller ip-address '10.32.40.25'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping node-controller mac '2a:1e:8e:a4:cf:50'
+# vm-node-01
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping vm-node-01 ip-address '10.32.40.26'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping vm-node-01 mac '2a:1e:8e:a4:cf:51'
+# vm-node-02
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping vm-node-02 ip-address '10.32.40.27'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping vm-node-02 mac '2a:1e:8e:a4:cf:52'
+# vm-node-03
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping vm-node-03 ip-address '10.32.40.28'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping vm-node-03 mac '2a:1e:8e:a4:cf:53'
 # casio      -- GPS NTP Time Server 1 (rpi)
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping casio ip-address '10.32.40.51'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping casio mac 'd8:3a:dd:68:0b:81'
