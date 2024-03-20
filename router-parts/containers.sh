@@ -21,7 +21,7 @@ set container name cloudflare-ddns shared-memory '0'
 
 # adguard
 set container name adguard cap-add 'net-bind-service'
-set container name adguard image 'docker.io/adguard/adguardhome:v0.107.44'
+set container name adguard image 'docker.io/adguard/adguardhome:v0.107.46'
 set container name adguard memory '0'
 set container name adguard network containers address '10.40.0.5'
 set container name adguard restart 'on-failure'
