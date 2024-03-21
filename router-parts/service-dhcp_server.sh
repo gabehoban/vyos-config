@@ -98,6 +98,12 @@ set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-
 # TARS       -- proxmox homelab vm
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping TARS ip-address '10.32.40.31'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping TARS mac '2a:1e:8e:a4:cf:41'
+# centos-nfs-01
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping centos-nfs-01 ip-address '10.32.40.41'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping centos-nfs-01 mac 'bc:24:11:cf:52:2c'
+# centos-nfs-02
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping centos-nfs-02 ip-address '10.32.40.42'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping centos-nfs-02 mac 'bc:24:11:96:31:ec'
 # node-controller
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping node-controller ip-address '10.32.40.25'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping node-controller mac '2a:1e:8e:a4:cf:50'
