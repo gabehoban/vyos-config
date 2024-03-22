@@ -19,6 +19,21 @@ set container name cloudflare-ddns memory '0'
 set container name cloudflare-ddns restart 'on-failure'
 set container name cloudflare-ddns shared-memory '0'
 
+# bind
+set container name bind cap-add 'net-bind-service'
+set container name bind image 'docker.io/internetsystemsconsortium/bind9:9.19'
+set container name bind command '/usr/sbin/named -4 -f -c /etc/bind/named.conf -u bind'
+set container name bind memory '0'
+set container name bind network containers address '10.40.0.4'
+set container name bind restart 'on-failure'
+set container name bind shared-memory '0'
+set container name bind volume config destination '/etc/bind'
+set container name bind volume config source '/config/containers/bind/config'
+set container name bind volume config mode 'ro'
+set container name bind volume cache source '/tmp/bind/cache'
+set container name bind volume cache destination '/var/cache/bind'
+set container name bind volume cache mode 'rw'
+
 # adguard
 set container name adguard cap-add 'net-bind-service'
 set container name adguard image 'docker.io/adguard/adguardhome:v0.107.46'

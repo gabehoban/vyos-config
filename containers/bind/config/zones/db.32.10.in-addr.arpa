@@ -1,0 +1,51 @@
+; Make sure to update the epoch time in the SOA records so coreDNS picks up the changes automatically
+; https://www.epochconverter.com/
+
+; SOA Records
+$TTL 3600
+$ORIGIN 32.10.in-addr.arpa.
+@ 3600 IN SOA gateway.labrats.cc. gateway.labrats.cc. (
+  1711145037         ; serial number (epoch timestamp)
+  7200               ; refresh period
+  3600               ; retry period
+  1209600            ; expire time
+  3600               ; minimum ttl
+)
+
+; NS Records
+@                          IN  NS gateway.labrats.cc.
+
+; Reset origin
+$ORIGIN in-addr.arpa.
+
+; LAN 
+254.0.32.10                 IN  PTR  gateway.labrats.cc.
+
+; Trusted
+21.10.32.10                 IN  PTR  baymax-pc.labrats.cc.
+22.10.32.10                 IN  PTR  gabes-iphone.labrats.cc.
+23.10.32.10                 IN  PTR  gabes-macbook.labrats.cc.
+
+; IOT
+31.30.32.10                 IN  PTR  bedroom-echo.labrats.cc.
+32.30.32.10                 IN  PTR  living-room-echo-show.labrats.cc.
+33.30.32.10                 IN  PTR  living-room-echo-studio.labrats.cc.
+61.30.32.10                 IN  PTR  lg-tv.labrats.cc.
+62.30.32.10                 IN  PTR  apple-tv.labrats.cc.
+63.30.32.10                 IN  PTR  levoit-purifier.labrats.cc.
+
+; SERVERS
+10.40.32.10                 IN  PTR  discovery.labrats.cc.
+11.40.32.10                 IN  PTR  discovery-idrac.labrats.cc.
+21.40.32.10                 IN  PTR  pve.labrats.cc.
+23.40.32.10                 IN  PTR  endeavour.labrats.cc.
+31.40.32.10                 IN  PTR  tars.labrats.cc.
+
+41.40.32.10                 IN  PTR  cluster-node-01.labrats.cc.
+42.40.32.10                 IN  PTR  cluster-node-02.labrats.cc.
+43.40.32.10                 IN  PTR  cluster-node-03.labrats.cc.
+51.40.32.10                 IN  PTR  casio.labrats.cc.
+52.40.32.10                 IN  PTR  seiko.labrats.cc.
+
+; Video
+51.50.32.10                 IN  PTR  kitchen-cam.labrats.cc.

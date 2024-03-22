@@ -21,5 +21,5 @@ set service mdns repeater interface 'eth0.50'
 
 # SSH server
 set service ssh disable-password-authentication
-set service ssh listen-address '10.32.10.254'
+set service ssh listen-address '10.32.0.254'
 set service ssh port '22'
