@@ -5,7 +5,7 @@
 $TTL 3600
 $ORIGIN labrats.cc.
 @ 3600 IN SOA gateway.labrats.cc. gateway.labrats.cc. (
-  1711145037         ; serial number (epoch timestamp)
+  1711148110         ; serial number (epoch timestamp)
   7200               ; refresh period
   3600               ; retry period
   1209600            ; expire time
@@ -53,3 +53,4 @@ kitchen-cam                   IN  A  10.32.50.51
 cluster                       IN  A  10.40.0.9
 
 ; CNAME records
+proxmox                       IN  CNAME pve.labrats.cc.
