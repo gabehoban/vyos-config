@@ -5,7 +5,7 @@
 $TTL 3600
 $ORIGIN labrats.cc.
 @ 3600 IN SOA gateway.labrats.cc. gateway.labrats.cc. (
-  1711148110         ; serial number (epoch timestamp)
+  1711161252         ; serial number (epoch timestamp)
   7200               ; refresh period
   3600               ; retry period
   1209600            ; expire time
@@ -40,9 +40,10 @@ pve                           IN  A  10.32.40.21
 endeavour                     IN  A  10.32.40.23
 tars                          IN  A  10.32.40.31
 
-cluster-node-01               IN  A  10.32.40.41
-cluster-node-02               IN  A  10.32.40.42
-cluster-node-03               IN  A  10.32.40.43
+rl9-satellite                 IN  A  10.32.40.40
+rlos-node-01                  IN  A  10.32.40.41
+rlos-node-02                  IN  A  10.32.40.42
+rlos-node-03                  IN  A  10.32.40.43
 casio                         IN  A  10.32.40.51
 seiko                         IN  A  10.32.40.52
 
