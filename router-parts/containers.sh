@@ -88,6 +88,7 @@ set container name onepassword-sync volume data destination '/home/opuser/.op/da
 set container name onepassword-sync volume data mode 'rw'
 
 # haproxy-k8s-api
+set container name haproxy-k8s-api 'net-bind-service'
 set container name haproxy-k8s-api image 'docker.io/library/haproxy:2.9.6'
 set container name haproxy-k8s-api memory '0'
 set container name haproxy-k8s-api network containers address '10.40.0.9'

@@ -19,5 +19,5 @@ tasks:
 
   dns-update:
     cmds:
-      - task: update-router
-      - ssh router -t "sudo rm -rf /tmp/bind/cache/*.jnl && /opt/vyatta/bin/vyatta-op-cmd-wrapper restart container bind"
+      - rsync -avz ./containers/bind router:/config/containers/
+      - ssh router -t "/opt/vyatta/bin/vyatta-op-cmd-wrapper restart container bind"
