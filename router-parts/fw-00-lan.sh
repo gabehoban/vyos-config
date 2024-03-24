@@ -37,6 +37,11 @@ set firewall ipv4 name lan-iot rule 999 state invalid
 set firewall ipv4 name lan-servers default-action 'drop'
 set firewall ipv4 name lan-servers description 'From lan to servers'
 set firewall ipv4 name lan-servers default-log
+### --- 010-servers : Accept NTP Traffic (123)
+set firewall ipv4 name lan-servers rule 10 action 'accept'
+set firewall ipv4 name lan-servers rule 10 description 'Rule: Accept_NTP'
+set firewall ipv4 name lan-servers rule 10 destination port 'ntp'
+set firewall ipv4 name lan-servers rule 10 protocol 'udp'
 ### --- 999-servers : Drop Invalid Packets
 set firewall ipv4 name lan-servers rule 999 action 'drop'
 set firewall ipv4 name lan-servers rule 999 description 'Rule: Drop_Invalid'
@@ -77,11 +82,6 @@ set firewall ipv4 name lan-local rule 10 description 'Rule: Accept_DHCP'
 set firewall ipv4 name lan-local rule 10 destination port '67,68'
 set firewall ipv4 name lan-local rule 10 protocol 'udp'
 set firewall ipv4 name lan-local rule 10 source port '67,68'
-### --- 020-local : Accept NTP Traffic (123)
-set firewall ipv4 name lan-local rule 20 action 'accept'
-set firewall ipv4 name lan-local rule 20 description 'Rule: Accept_NTP'
-set firewall ipv4 name lan-local rule 20 destination port 'ntp'
-set firewall ipv4 name lan-local rule 20 protocol 'udp'
 ### --- 060-local : Accept MDNS (5353)
 set firewall ipv4 name lan-local rule 60 action 'accept'
 set firewall ipv4 name lan-local rule 60 description 'Rule: accept_MDNS'

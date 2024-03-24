@@ -11,7 +11,8 @@ set service dhcp-server shared-network-name lan subnet 10.32.0.0/24 option domai
 set service dhcp-server shared-network-name lan subnet 10.32.0.0/24 option name-server '10.40.0.6'
 set service dhcp-server shared-network-name lan subnet 10.32.0.0/24 range 0 start '10.32.0.200'
 set service dhcp-server shared-network-name lan subnet 10.32.0.0/24 range 0 stop '10.32.0.253'
-# set service dhcp-server shared-network-name lan ntp-server 10.32.0.254
+set service dhcp-server shared-network-name lan ntp-server 10.32.40.51
+set service dhcp-server shared-network-name lan ntp-server 10.32.40.52
 
 set service dhcp-server shared-network-name lan subnet 10.32.0.0/24 static-mapping tplink-switch ip-address '10.32.0.21'
 set service dhcp-server shared-network-name lan subnet 10.32.0.0/24 static-mapping tplink-switch mac '54:af:97:0E:80:c9'
@@ -27,7 +28,8 @@ set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 option 
 set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 option name-server '10.40.0.6'
 set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 range 0 start '10.32.10.200'
 set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 range 0 stop '10.32.10.253'
-# set service dhcp-server shared-network-name trusted ntp-server 10.32.10.254
+set service dhcp-server shared-network-name trusted ntp-server 10.32.40.51
+set service dhcp-server shared-network-name trusted ntp-server 10.32.40.52
 
 set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 static-mapping baymax-pc ip-address '10.32.10.21'
 set service dhcp-server shared-network-name trusted subnet 10.32.10.0/24 static-mapping baymax-pc mac '08:bf:b8:13:5d:29'
@@ -44,9 +46,8 @@ set service dhcp-server shared-network-name guest subnet 10.32.20.0/24 option de
 set service dhcp-server shared-network-name guest subnet 10.32.20.0/24 option name-server '10.40.0.6'
 set service dhcp-server shared-network-name guest subnet 10.32.20.0/24 range 0 start '10.32.20.200'
 set service dhcp-server shared-network-name guest subnet 10.32.20.0/24 range 0 stop '10.32.20.253'
-
-set service dhcp-server shared-network-name guest subnet 10.32.20.0/24 static-mapping work-laptop ip-address '10.32.20.21'
-set service dhcp-server shared-network-name guest subnet 10.32.20.0/24 static-mapping work-laptop mac 'ac:19:8e:58:54:21'
+set service dhcp-server shared-network-name guest ntp-server 10.32.40.51
+set service dhcp-server shared-network-name guest ntp-server 10.32.40.52
 
 # (30) iot Network
 set service dhcp-server shared-network-name iot authoritative
@@ -56,7 +57,9 @@ set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 option defa
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 option name-server '10.40.0.6'
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 range 0 start '10.32.30.200'
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 range 0 stop '10.32.30.253'
-# set service dhcp-server shared-network-name iot ntp-server 10.32.30.254
+set service dhcp-server shared-network-name iot ntp-server 10.32.40.51
+set service dhcp-server shared-network-name iot ntp-server 10.32.40.52
+
 ## -- (10.32.30.3x) iot ALEXA ECHO
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping bedroom-echo ip-address '10.32.30.31'
 set service dhcp-server shared-network-name iot subnet 10.32.30.0/24 static-mapping bedroom-echo mac '58:e4:88:cc:38:71'
@@ -83,7 +86,9 @@ set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 option 
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 option name-server '10.40.0.6'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 range 0 start '10.32.40.200'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 range 0 stop '10.32.40.253'
-# set service dhcp-server shared-network-name servers ntp-server 10.32.40.254
+set service dhcp-server shared-network-name servers ntp-server 10.32.40.51
+set service dhcp-server shared-network-name servers ntp-server 10.32.40.52
+
 # discovery  -- truenas storage host
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping discovery ip-address '10.32.40.10'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping discovery mac '84:2b:2b:45:04:8e'
@@ -96,20 +101,17 @@ set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping endeavour ip-address '10.32.40.23'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping endeavour mac '02:70:6c:98:d2:3d'
 # TARS       -- proxmox homelab vm
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping TARS ip-address '10.32.40.31'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping TARS mac '2a:1e:8e:a4:cf:41'
-# rl9-satellite
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping rl9-satellite ip-address '10.32.40.40'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping rl9-satellite mac '2a:1e:8e:a4:cf:50'
-# cluster-node-01
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping rlos-node-01 ip-address '10.32.40.41'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping rlos-node-01 mac '2a:1e:8e:a4:cf:51'
-# cluster-node-02
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping rlos-node-02 ip-address '10.32.40.42'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping rlos-node-02 mac '2a:1e:8e:a4:cf:52'
-# cluster-node-03
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping rlos-node-03 ip-address '10.32.40.43'
-set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping rlos-node-03 mac '2a:1e:8e:a4:cf:53'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping tars ip-address '10.32.40.31'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping tars mac '2a:1e:8e:a4:cf:41'
+# terra-node-01     -- proxmox talos vm
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping terra-node-01 ip-address '10.32.40.41'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping terra-node-01 mac '2a:1e:8e:a4:cf:51'
+# terra-node-02     -- proxmox talos vm
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping terra-node-02 ip-address '10.32.40.42'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping terra-node-02 mac '2a:1e:8e:a4:cf:52'
+# terra-node-03     -- proxmox talos vm
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping terra-node-03 ip-address '10.32.40.43'
+set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping terra-node-03 mac '2a:1e:8e:a4:cf:53'
 # casio      -- GPS NTP Time Server 1 (rpi)
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping casio ip-address '10.32.40.51'
 set service dhcp-server shared-network-name servers subnet 10.32.40.0/24 static-mapping casio mac 'd8:3a:dd:68:0b:81'
@@ -125,7 +127,9 @@ set service dhcp-server shared-network-name video subnet 10.32.50.0/24 option de
 set service dhcp-server shared-network-name video subnet 10.32.50.0/24 option name-server '10.40.0.6'
 set service dhcp-server shared-network-name video subnet 10.32.50.0/24 range 0 start '10.32.50.200'
 set service dhcp-server shared-network-name video subnet 10.32.50.0/24 range 0 stop '10.32.50.253'
-# set service dhcp-server shared-network-name video ntp-server 10.32.50.254
+set service dhcp-server shared-network-name video ntp-server 10.32.40.51
+set service dhcp-server shared-network-name video ntp-server 10.32.40.52
+
 ## -- (10.32.50.5x) video VIDEO
 set service dhcp-server shared-network-name video subnet 10.32.50.0/24 static-mapping kitchen-cam ip-address '10.32.50.51'
 set service dhcp-server shared-network-name video subnet 10.32.50.0/24 static-mapping kitchen-cam mac '78:8c:b5:6c:46:17'

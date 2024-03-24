@@ -37,6 +37,11 @@ set firewall ipv4 name guest-iot rule 999 state invalid
 set firewall ipv4 name guest-servers default-action 'drop'
 set firewall ipv4 name guest-servers description 'From guest to servers'
 set firewall ipv4 name guest-servers default-log
+### --- 010-servers : Accept NTP Traffic (123)
+set firewall ipv4 name guest-servers rule 10 action 'accept'
+set firewall ipv4 name guest-servers rule 10 description 'Rule: Accept_NTP'
+set firewall ipv4 name guest-servers rule 10 destination port 'ntp'
+set firewall ipv4 name guest-servers rule 10 protocol 'udp'
 ### --- 999-servers : Drop Invalid Packets
 set firewall ipv4 name guest-servers rule 999 action 'drop'
 set firewall ipv4 name guest-servers rule 999 description 'Rule: Drop_Invalid'

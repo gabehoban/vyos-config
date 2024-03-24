@@ -47,6 +47,11 @@ set firewall ipv4 name video-iot rule 999 state invalid
 set firewall ipv4 name video-servers default-action 'drop'
 set firewall ipv4 name video-servers description 'From video to servers'
 set firewall ipv4 name video-servers default-log
+### --- 010-servers : Accept NTP Traffic (123)
+set firewall ipv4 name video-servers rule 10 action 'accept'
+set firewall ipv4 name video-servers rule 10 description 'Rule: Accept_NTP'
+set firewall ipv4 name video-servers rule 10 destination port 'ntp'
+set firewall ipv4 name video-servers rule 10 protocol 'udp'
 ### --- 999-servers : Drop Invalid Packets
 set firewall ipv4 name video-servers rule 999 action 'drop'
 set firewall ipv4 name video-servers rule 999 description 'Rule: Drop_Invalid'
@@ -78,11 +83,6 @@ set firewall ipv4 name video-local rule 10 description 'Rule: Accept_DHCP'
 set firewall ipv4 name video-local rule 10 destination port '67,68'
 set firewall ipv4 name video-local rule 10 protocol 'udp'
 set firewall ipv4 name video-local rule 10 source port '67,68'
-### --- 020-local : Accept NTP Traffic (123)
-set firewall ipv4 name video-local rule 20 action 'accept'
-set firewall ipv4 name video-local rule 20 description 'Rule: Accept_NTP'
-set firewall ipv4 name video-local rule 20 destination port 'ntp'
-set firewall ipv4 name video-local rule 20 protocol 'udp'
 ### --- 050-local : Accept ICMP Ping
 set firewall ipv4 name video-local rule 50 action 'accept'
 set firewall ipv4 name video-local rule 50 description 'Rule: Accept_PING'

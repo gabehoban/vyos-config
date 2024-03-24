@@ -37,6 +37,11 @@ set firewall ipv4 name iot-guest rule 999 state invalid
 set firewall ipv4 name iot-servers default-action 'drop'
 set firewall ipv4 name iot-servers description 'From iot to servers'
 set firewall ipv4 name iot-servers default-log
+### --- 010-servers : Accept NTP Traffic (123)
+set firewall ipv4 name iot-servers rule 10 action 'accept'
+set firewall ipv4 name iot-servers rule 10 description 'Rule: Accept_NTP'
+set firewall ipv4 name iot-servers rule 10 destination port 'ntp'
+set firewall ipv4 name iot-servers rule 10 protocol 'udp'
 ### --- 040-servers : Accept HTTPS Traffic (443)
 set firewall ipv4 name iot-servers rule 40 action 'accept'
 set firewall ipv4 name iot-servers rule 40 description 'Rule: Accept_HTTPS'
@@ -102,11 +107,6 @@ set firewall ipv4 name iot-local rule 10 description 'Rule: Accept_DHCP'
 set firewall ipv4 name iot-local rule 10 destination port '67,68'
 set firewall ipv4 name iot-local rule 10 protocol 'udp'
 set firewall ipv4 name iot-local rule 10 source port '67,68'
-### --- 020-local : Accept NTP Traffic (123)
-set firewall ipv4 name iot-local rule 20 action 'accept'
-set firewall ipv4 name iot-local rule 20 description 'Rule: Accept_NTP'
-set firewall ipv4 name iot-local rule 20 destination port 'ntp'
-set firewall ipv4 name iot-local rule 20 protocol 'udp'
 ### --- 030-local : Accept SSH Traffic (22)
 set firewall ipv4 name iot-local rule 30 action 'accept'
 set firewall ipv4 name iot-local rule 30 description 'Rule: Accept_MDNS'

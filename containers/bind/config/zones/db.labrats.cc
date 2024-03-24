@@ -5,7 +5,7 @@
 $TTL 3600
 $ORIGIN labrats.cc.
 @ 3600 IN SOA gateway.labrats.cc. gateway.labrats.cc. (
-  1711172032         ; serial number (epoch timestamp)
+  1711311760         ; serial number (epoch timestamp)
   7200               ; refresh period
   3600               ; retry period
   1209600            ; expire time
@@ -40,9 +40,9 @@ pve                           IN  A  10.32.40.21
 endeavour                     IN  A  10.32.40.23
 tars                          IN  A  10.32.40.31
 
-rhl9-node-01                  IN  A  10.32.40.41
-rhl9-node-02                  IN  A  10.32.40.42
-rhl9-node-03                  IN  A  10.32.40.43
+terra-node-01                 IN  A  10.32.40.41
+terra-node-02                 IN  A  10.32.40.42
+terra-node-03                 IN  A  10.32.40.43
 
 casio                         IN  A  10.32.40.51
 seiko                         IN  A  10.32.40.52
@@ -52,6 +52,9 @@ kitchen-cam                   IN  A  10.32.50.51
 
 ; Containers
 cluster                       IN  A  10.40.0.9
+
+; SRV records
+_ntp._udp                     IN  SRV 0 100 123 casio.labrats.cc.
 
 ; CNAME records
 proxmox                       IN  CNAME pve.labrats.cc.
